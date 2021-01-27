@@ -1,0 +1,45 @@
+package com.pluto.atlantishotel.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+
+import com.pluto.atlantishotel.model.Contact;
+import com.pluto.atlantishotel.dao.ContactDao;
+
+@Controller
+public class ContactController {
+
+	@Autowired
+	private Environment env;
+	
+	@Autowired
+	private ContactDao dao;
+
+	// To load the contact form
+	@GetMapping("/contact/index")
+	public ModelAndView contactUs() {
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("contact/index");
+
+		HomeController hc = new HomeController();
+		hc.setAppName(mv, env);
+		return mv;
+	}
+	
+
+	@PostMapping("/contact/index")
+	public ModelAndView contactUs(Contact contact) {
+		System.out.println("here11");
+		 ModelAndView mv = new ModelAndView();
+		 mv.setViewName("home/index");
+		dao.save(contact);
+		System.out.println("here");
+		return mv;
+	}
+}
