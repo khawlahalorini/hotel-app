@@ -45,7 +45,7 @@
 			<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
-					<li><a href="${appName}rooms/index">Rooms</a></li>
+					<li><a href="${appName}rooms/roomb">Rooms</a></li>
 					<li><a href="${appName}suites/index">Suites</a></li>
 				</ul>
 			</li>
@@ -137,7 +137,7 @@
 			<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
-					<li><a href="${appName}rooms/room">Rooms</a></li>
+					<li><a href="${appName}rooms/roomb">Rooms</a></li>
 					<li><a href="${appName}rooms/suite">Suites</a></li>
 				</ul>
 			</li>

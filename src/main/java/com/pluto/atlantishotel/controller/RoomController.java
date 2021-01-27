@@ -20,11 +20,11 @@ public class RoomController {
 	@Autowired
 	private RoomDao dao;
 	
-	  @GetMapping("/room/?")
+	  @GetMapping("/rooms/roomb")
 	   public ModelAndView room() {
 		   
 		   ModelAndView mv = new ModelAndView();
-//		   mv.setViewName("room/?");
+     	   mv.setViewName("rooms/roomb");
 		   
 		   HomeController hc = new HomeController();
 		   hc.setAppName(mv, env);
@@ -32,12 +32,12 @@ public class RoomController {
 		   return mv;
 	   }
 	  
-	  @PostMapping("/room/?")
+	  @PostMapping("/rooms/roomb")
 		 public String registration(Room room) {
 
 			 
 			 ModelAndView mv = new ModelAndView();
-//			 mv.setViewName("room/?");
+        	 mv.setViewName("rooms/roomb");
 			 
 			 HomeController hc = new HomeController();
 			 hc.setAppName(mv, env);
