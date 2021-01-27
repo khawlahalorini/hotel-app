@@ -29,7 +29,8 @@
 <security:authorize access="!isAuthenticated()">
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Atlantis<b>Hotel</b></a>  		
+		<a class="navbar-brand" href="#"><img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" alt="logo">
+		Atlantis<b>Hotel</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 			<span class="navbar-toggler-icon"></span>
 			<span class="icon-bar"></span>
@@ -121,7 +122,7 @@
 <security:authentication property="principal.authorities" />
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Atlantis<b>Hotel</b></a>  		
+		<a class="navbar-brand" href="#"><img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" alt="logo">Atlantis<b>Hotel</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 			<span class="navbar-toggler-icon"></span>
 			<span class="icon-bar"></span>
@@ -150,10 +151,23 @@
 				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
 			</div>
 		</form>
-		<b>Hi: <security:authentication property="principal.username" /> </b>	
-		<ul class="nav navbar-nav navbar-right">			
-			<li><a href="${appName}logout" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a></li>
-		</ul>
+		
+  <div class="collapse navbar-collapse" id="navbar-list-4">
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <b>Hi: <security:authentication property="principal.username" /> </b>	
+          <a class="dropdown-item" href="#">Dashboard</a>
+          <a class="dropdown-item" href="#">Edit Profile</a>
+          <a href="${appName}logout" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a>
+        </div>
+      </li>   
+    </ul>
+  </div>
+  		
 	</div>
 </nav>
 
