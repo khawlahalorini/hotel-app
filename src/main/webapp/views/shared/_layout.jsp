@@ -28,8 +28,8 @@
 
 <security:authorize access="!isAuthenticated()">
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#"><img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" alt="logo">
+	<div class="navbar-header brand">
+		<a href="#"><img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle" alt="logo">
 		Atlantis<b>Hotel</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 			<span class="navbar-toggler-icon"></span>
@@ -98,7 +98,7 @@
 							</div>
 								
                         	<div class="form-group">
-                    		<select name="userRole" class="form-control" placeholder="Select Role" required="required">
+                    		<select name="userRole" class="form-control" required="required">
 	                		<option value="ROLE_ADMIN">Admin</option>
                  			<option value="ROLE_USER">User</option>
 	                    	</select>
@@ -121,8 +121,9 @@
 <security:authorize access="isAuthenticated()">
 <security:authentication property="principal.authorities" />
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#"><img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" alt="logo">Atlantis<b>Hotel</b></a>  		
+	<div class="navbar-header brand">
+		<a href="#"><img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle" alt="logo">
+		Atlantis<b>Hotel</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 			<span class="navbar-toggler-icon"></span>
 			<span class="icon-bar"></span>
@@ -152,22 +153,30 @@
 			</div>
 		</form>
 		
-  <div class="collapse navbar-collapse" id="navbar-list-4">
+  <div class="collapse navbar-collapse card" id="navbar-list-4">
     <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <b>Hi: <security:authentication property="principal.username" /> </b>	
-          <a class="dropdown-item" href="#">Dashboard</a>
-          <a class="dropdown-item" href="#">Edit Profile</a>
-          <a href="${appName}logout" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a>
+          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" alt="John" style="width:100%;height:200px;">
+          <h1>GA PLUTO</h1>
+          <h1><security:authentication property="principal.username" /> </h1>
+          <div>
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+  </div>	
+   <a href="${appName}profile/edit" class="dropdown-item btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Edit Profile</a>
+   <a href="${appName}logout" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a>
         </div>
       </li>   
     </ul>
+
   </div>
-  		
+
 	</div>
 </nav>
 
