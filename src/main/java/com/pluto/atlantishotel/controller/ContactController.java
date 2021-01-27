@@ -35,11 +35,9 @@ public class ContactController {
 
 	@PostMapping("/contact/index")
 	public ModelAndView contactUs(Contact contact) {
-		System.out.println("here11");
 		 ModelAndView mv = new ModelAndView();
 		 mv.setViewName("home/index");
-		dao.save(contact);
-		System.out.println("here");
-		return mv;
+		 dao.save(contact);
+		 return mv;
 	}
 }
