@@ -23,7 +23,7 @@ public class Contact {
 	
 	@Column(name = "createdAt", nullable = false, updatable = false)
 	@CreationTimestamp
-	private LocalDateTime sendAt;
+	private LocalDateTime createAt;
 
 	public int getId() {
 		return id;
@@ -58,10 +58,10 @@ public class Contact {
 	}
 
 	public LocalDateTime getSendAt() {
-		return sendAt;
+		return createAt;
 	}
 
-	public void setSendAt(LocalDateTime sendAt) {
-		this.sendAt = sendAt;
+	public void setSendAt(LocalDateTime createAt) {
+		this.createAt = createAt;
 	}
 }

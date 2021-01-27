@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.pluto.atlantishotel.model.Contact;
+
 import com.pluto.atlantishotel.dao.ContactDao;
 
 @Controller
@@ -19,20 +20,20 @@ public class ContactController {
 	
 	@Autowired
 	private ContactDao dao;
-
-	// To load the contact form
+	
+	// HTTP GET REQUEST - contact index
 	@GetMapping("/contact/index")
 	public ModelAndView contactUs() {
-
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("contact/index");
-
+		
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
+		
 		return mv;
 	}
 	
-
+	// HTTP POST REQUEST - contact index
 	@PostMapping("/contact/index")
 	public ModelAndView contactUs(Contact contact) {
 		 ModelAndView mv = new ModelAndView();
@@ -40,4 +41,5 @@ public class ContactController {
 		 dao.save(contact);
 		 return mv;
 	}
+	
 }
