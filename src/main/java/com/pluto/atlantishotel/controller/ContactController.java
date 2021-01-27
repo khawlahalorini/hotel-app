@@ -35,10 +35,11 @@ public class ContactController {
 	
 	// HTTP POST REQUEST - contact index
 	@PostMapping("/contact/index")
-	public String contactUs(Contact contact) {
-		dao.save(contact);
-		
-		return "redirect:/contact/index";
+	public ModelAndView contactUs(Contact contact) {
+		 ModelAndView mv = new ModelAndView();
+		 mv.setViewName("home/index");
+		 dao.save(contact);
+		 return mv;
 	}
 	
 }

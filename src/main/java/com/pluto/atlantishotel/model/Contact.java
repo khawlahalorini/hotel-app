@@ -20,6 +20,7 @@ public class Contact {
 	private String emailAddress;
 	private String subject;
 	private String message;
+	
 	@Column(name = "createdAt", nullable = false, updatable = false)
 	@CreationTimestamp
 	private LocalDateTime createAt;

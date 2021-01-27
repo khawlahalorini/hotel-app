@@ -11,7 +11,7 @@
                 <input type="text" class="form-control" placeholder="Enter Your Message" name="message" required>
             </div>
             	<br>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	  	<button type="submit" name="send"  class="btn btn-primary">Send</button>
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	  	<button type="submit" class="btn btn-primary">Send</button>
             
         </form>
