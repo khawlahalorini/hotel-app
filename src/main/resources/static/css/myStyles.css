@@ -1,33 +1,14 @@
 @charset "ISO-8859-1";
 
-.brand a{
-	margin-top:10px;
-    text-decoration: none;
-}
+
 .brand b{
 	color:#33cabb;
 }
-.brand:hover {
-  color: blue;
-}
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  float: right;
-  text-align: center;
-  font-family: arial;
-}
-
-.title {
-  color: grey;
-  font-size: 18px;
-}
 
 a {
   text-decoration: none;
   font-size: 22px;
-  color: black;
 }
 
 
