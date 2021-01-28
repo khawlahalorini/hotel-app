@@ -8,9 +8,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.pluto.atlantishotel.dao.UserDao;
+import com.pluto.atlantishotel.model.Room;
 import com.pluto.atlantishotel.model.User;
 
 @Controller
@@ -24,6 +25,7 @@ public class UserController {
 	
 	@Autowired
 	HttpServletRequest request;
+
 	
 	// Routes 
 	
@@ -74,6 +76,7 @@ public class UserController {
 		 return mv;
 		 
 	 }
+
 	
 	// To load the login form
 		@GetMapping("/index")
@@ -86,5 +89,35 @@ public class UserController {
 			
 			return mv;
 		}
-	
+		/*
+		 * @GetMapping("/profile/edit") public ModelAndView editProfile() {
+		 * 
+		 * ModelAndView mv = new ModelAndView(); mv.setViewName("profile/edit");
+		 * 
+		 * HomeController hc = new HomeController(); hc.setAppName(mv, env);
+		 * 
+		 * return mv; }
+		 */ 
+		
+		 
+		 
+		// HTTP GET REQUEST - Article Edit
+		@GetMapping("/profile/edit")
+		public ModelAndView editArticle() {
+		
+			
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("profile/edit");
+			
+			
+			HomeController hc = new HomeController();
+			hc.setAppName(mv, env);
+			
+			
+			return mv;
+		}
+		
+		
+
 }
+
