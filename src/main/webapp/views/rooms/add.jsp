@@ -26,7 +26,7 @@
                 <input type="text" class="form-control" placeholder="Image" name="image" required>
             </div>  
          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	  	<button type="submit"name="room"  class="btn btn-primary">Send</button>
+	  	<button type="submit"name="room"  class="button">Add Room</button>
         
 </form>
 </div>
