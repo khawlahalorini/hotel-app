@@ -1,18 +1,28 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<div class="homepage">
 <jsp:include page="../shared/_layout.jsp" />
 
-Author's Name: ${author.name} <br>
-Email Address: ${author.emailAddress} <br>
 
-Gender: ${author.gender} <br>
-Date of Birth: ${author.dateofBirth} <br><br>
-
-<%-- Article: ${author.article} <br> --%>
-
-	<c:forEach items="${author.getArticles()}" var="article">
-			<div>Title: ${article.title} </div> 
-
-			<div> Description: ${article.description} </div> 
-			
-			<hr>
-	</c:forEach>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Room No</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Room Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>${room.roomNo}</td>
+      <td>${room.description}</td>
+      <td>${room.price}</td>
+      <td>${room.roomType}</td>
+    </tr> 
+  </tbody>
+</table>
+<div><img class="img" src="${room.image}" alt="single"></div>
+</div>
