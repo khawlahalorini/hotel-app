@@ -26,9 +26,7 @@ public class RoomController {
 		
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
-		
 
-		
 		return mv;
 	}
 	
@@ -108,6 +106,4 @@ public class RoomController {
 		dao.deleteById(id);
 		return "redirect:/rooms/roomb";
 	}
-	
-	
 }

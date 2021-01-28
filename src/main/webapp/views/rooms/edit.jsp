@@ -13,10 +13,15 @@
             
             <div class="form-group">
                 <input type="number" class="form-control" value="${room.price}" name="price" required>
-            </div>       
-            <div class="form-group">
-                <input type="text" class="form-control" value="${room.roomType}" name="roomType" required>
-            </div>  
+            </div>
+         
+             <div class="form-group">
+              <select name="roomType" class="form-control" required>
+                <option value="single">Single</option>
+                <option value="suite">Suite</option>
+              </select>
+              </div>
+            
             <div class="form-group">
                 <input type="text" class="form-control" value="${room.image}" name="image" required>
             </div>  

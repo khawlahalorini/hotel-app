@@ -13,10 +13,15 @@
             
             <div class="form-group">
                 <input type="number" class="form-control" placeholder="Price" name="price" required>
-            </div>       
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Room Type" name="roomType" required>
-            </div>  
+            </div>   
+            
+              <div class="form-group">
+              <select name="roomType" class="form-control"  required>
+                <option value="single">Single</option>
+                <option value="suite">Suite</option>
+              </select>
+              </div>
+
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Image" name="image" required>
             </div>  
