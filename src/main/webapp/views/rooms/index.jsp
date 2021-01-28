@@ -33,16 +33,16 @@
 		</security:authorize>	
 		
 		<security:authorize access="hasRole('USER')">
-			<td><button class="button" onclick="setColor(event)">Reservation</button>			
+			<td><button id="points" class="button" onclick="setColor(event)">Reservation</button>						
 			<script>
             function setColor(e) {
             var target = e.target,
            count = +target.dataset.count;
-           target.style.backgroundColor = count === 1 ? "green" : 'red';
+           target.style.backgroundColor = count === 1 ? "green" : "red";
            target.dataset.count = count === 1 ? 0 : 1;
            }
-
-</script>
+           </script>
+           
 		</security:authorize>
 </security:authorize>			
 
