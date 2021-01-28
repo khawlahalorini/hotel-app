@@ -249,5 +249,18 @@ body {
 	height: 100%;
   
 }
-
+img
+{
+	width:500px;
+	height:400px;
+	margin-top:5%;
+    margin-left: 200px;
+    margin-right: auto;
+    border-radius: 10px;
+    opacity: 0.5;
+	
+}
+img:hover {
+  opacity: 1.0;
+}
 	

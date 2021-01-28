@@ -33,7 +33,7 @@ public class RoomController {
 	   }
 	  
 	  @PostMapping("/rooms/roomb")
-		 public String registration(Room room) {
+		 public String roomBooked(Room room) {
 
 			 
 			 ModelAndView mv = new ModelAndView();
