@@ -12,18 +12,13 @@ public class Room {
 	
 	 @Id
 	@GeneratedValue
-	 private int id;
-	 
-	 private int roomNo;
-	 
-	 private int price;
-	
-	 private String roomType;
-	 
-	 private String image;
-	 
+	 private int id;	 
+	 private int roomNo;	 
+	 private int price;	
+	 private String roomType;	 
+	 private String image;	 
 	 private String description;
-
+	 private String reservation;
 
 
 	public int getId() {
@@ -72,6 +67,14 @@ public class Room {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(String reservation) {
+		this.reservation = reservation;
 	}
 	 
 	 

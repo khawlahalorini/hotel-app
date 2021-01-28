@@ -106,4 +106,18 @@ public class RoomController {
 		dao.deleteById(id);
 		return "redirect:/rooms/roomb";
 	}
+	
+	// HTTP GET REQUEST - rooms reservation
+		@GetMapping("/rooms/reservation")
+		public ModelAndView roomsReservation(@RequestParam int id) {
+			Room room = dao.findById(id);
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("rooms/reservation");
+			mv.addObject("room", room);
+			
+			HomeController hc = new HomeController();
+			hc.setAppName(mv, env);
+
+			return mv;
+		}
 }

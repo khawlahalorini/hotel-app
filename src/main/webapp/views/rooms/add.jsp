@@ -21,6 +21,13 @@
                 <option value="suite">Suite</option>
               </select>
               </div>
+              
+              <div class="form-group">
+              <select name="reservation" class="form-control"  required>
+                <option value="vacant">Vacant</option>
+                <option value="preoccupied">Preoccupied</option>
+              </select>
+              </div>
 
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Image" name="image" required>
