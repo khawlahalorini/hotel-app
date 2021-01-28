@@ -43,13 +43,7 @@
 		<ul class="nav navbar-nav">
 			<li><a href="${appName}">Home</a></li>
 					<li><a href="${appName}about/index">About</a></li>			
-			<li class="dropdown">
-				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
-				<ul class="dropdown-menu">					
-					<li><a href="${appName}rooms/index">Rooms</a></li>
-					<li><a href="${appName}suites/index">Suites</a></li>
-				</ul>
-			</li>
+			<li><a href="${appName}rooms/roomb">Rooms</a></li>
 			<li><a href="${appName}restaurant/index">Restaurant</a></li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
@@ -136,13 +130,10 @@
 		<ul class="nav navbar-nav">
 			<li><a href="${appName}">Home</a></li>
 			<li><a href="${appName}about/index">About</a></li>			
-			<li class="dropdown">
-				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
-				<ul class="dropdown-menu">					
-					<li><a href="${appName}rooms/room">Rooms</a></li>
-					<li><a href="${appName}rooms/suite">Suites</a></li>
-				</ul>
-			</li>
+			<li><a href="${appName}rooms/roomb">Rooms</a></li>
+			<security:authorize access="hasRole('ADMIN')">
+			<li><a href="${appName}rooms/add">Add Room</a></td>
+		    </security:authorize>
 			<li><a href="${appName}restaurant/index">Restaurant</a></li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
