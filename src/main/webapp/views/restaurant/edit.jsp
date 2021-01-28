@@ -1,3 +1,5 @@
+<div class="homepage">
+
 <jsp:include page="../shared/_layout.jsp" />
 
 <form action="${appName}restaurant/add" method="post">
@@ -28,7 +30,9 @@
             </div>       
             
             	<input name="id" type="hidden" value="${restaurant.id}">
+            	
          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	  	<button type="submit"name="restaurant"  class="btn btn-primary">Send</button>
         
 </form>
+</div>

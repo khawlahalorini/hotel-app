@@ -1,3 +1,5 @@
+<div class="homepage">
+
 <jsp:include page="../shared/_layout.jsp" />
 
 <form action="${appName}restaurant/add" method="post">
@@ -30,3 +32,4 @@
 	  	<button type="submit"name="restaurant"  class="btn btn-primary">Send</button>
         
 </form>
+</div>
