@@ -4,6 +4,6 @@
 <jsp:include page="../shared/_layout.jsp" />
 
 <a href="${appName}rooms/index"><img class="img" src="../images/sweet.jpg" alt="sweet"></a>
-<a href="${appName}rooms/index"><img class="img" src="../images/single.jpg" alt="sweet"></a>
+<a href="${appName}rooms/index"><img class="img" src="../images/single.jpg" alt="single"></a>
 
 </div>

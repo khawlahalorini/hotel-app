@@ -1,10 +1,28 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<div class="homepage">
 <jsp:include page="../shared/_layout.jsp" />
-<%-- 
-Author's Name: ${room.id} <br>
-Email Address: ${room.price} <br>
-Gender: ${room.price} <br>
-Date of Birth: ${room.price} <br>
-Description: ${room.roomType}  <br>
-Description: ${room.image}  <br>
-Description: ${room.description}   <br> --%>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Room No</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Room Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>${room.roomNo}</td>
+      <td>${room.description}</td>
+      <td>${room.price}</td>
+      <td>${room.roomType}</td>
+    </tr> 
+  </tbody>
+</table>
+<div><img class="img" src="${room.image}" alt="single"></div>
+</div>

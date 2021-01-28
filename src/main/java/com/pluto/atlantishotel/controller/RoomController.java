@@ -71,10 +71,8 @@ public class RoomController {
 		}
 	
 	// HTTP GET REQUEST - Author Detail
-	@GetMapping("/author/detail")
-	public ModelAndView roomDetails(@RequestParam int id) {
-		System.out.println(id);
-		
+	@GetMapping("/rooms/detail")
+	public ModelAndView roomDetails(@RequestParam int id) {		
 		Room room = dao.findById(id);
 		
 		ModelAndView mv = new ModelAndView();
@@ -104,7 +102,7 @@ public class RoomController {
 	}
 	
 	// HTTP GET REQUEST - room Delete
-	@GetMapping("/author/delete")
+	@GetMapping("/rooms/delete")
 	public String deleteRoom(@RequestParam int id) {
 		
 		dao.deleteById(id);

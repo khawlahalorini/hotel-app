@@ -18,21 +18,21 @@
 
 	<c:forEach items="${rooms}" var="room">
 		<tr>
-			<td><a href="${appName}rooms/detail?roomNo=${room.roomNo}">${room.roomNo}</a></td>
+			<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
 			<td>${room.roomType}</td>
 			<td>${room.description}</td>
 			<td>${room.price}</td>
 
 <security:authorize access="isAuthenticated()">
          <security:authorize access="hasRole('ADMIN')">
-			<td><a href="${appName}rooms/edit?roomNo=${room.roomNo}">Edit</a>
+			<td><a href="${appName}rooms/edit?id=${room.id}">Edit</a>
 		
 			 | <a
-				href="${appName}rooms/delete?roomNo=${room.roomNo}">Delete</a></td>
+				href="${appName}rooms/delete?id=${room.id}">Delete</a></td>
 		</security:authorize>	
 		
 		<security:authorize access="hasRole('USER')">
-			<td><a href="${appName}rooms/reservation?roomNo=${room.roomNo}">Reservation</a>
+			<td><a href="${appName}rooms/reservation?id=${room.id}">Reservation</a>
 		</security:authorize>
 </security:authorize>			
 
