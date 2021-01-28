@@ -1,6 +1,6 @@
 <div class="homepage">
 <jsp:include page="../shared/_layout.jsp" />
-
+<!-- 
 
 <script>
 // Get the video
@@ -16,7 +16,7 @@ var video = document.getElementById("myVideo");
   Your browser does not support HTML5 video.
 </video> 
 
-
+ -->
 
 </div>
 
