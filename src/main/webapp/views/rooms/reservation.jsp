@@ -21,7 +21,7 @@
               <div class="form-group">
               <select name="reservation" class="form-control"  required>
                 <option value="vacant">Vacant</option>
-                <option value="preoccupied">Preoccupied</option>
+                <option value="${room.user.emailAddress}">Preoccupied</option>
               </select>
               </div>
             

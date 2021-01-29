@@ -3,6 +3,8 @@ package com.pluto.atlantishotel.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,7 +21,19 @@ public class Room {
 	 private String image;	 
 	 private String description;
 	 private String reservation;
+	 
+	 @ManyToOne
+		@JoinColumn(name = "FK_UserId")
+		private User user;
 
+	 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public int getId() {
 		return id;
