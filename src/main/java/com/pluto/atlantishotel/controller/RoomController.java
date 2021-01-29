@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pluto.atlantishotel.dao.RoomDao;
+import com.pluto.atlantishotel.dao.UserDao;
 import com.pluto.atlantishotel.model.Room;
 
 @Controller
@@ -17,6 +18,9 @@ public class RoomController {
 
 	@Autowired 
 	private Environment env;
+	
+	@Autowired
+	private UserDao userdao;
 	
 	// HTTP GET REQUEST - Room Add
 	@GetMapping("/rooms/add")
@@ -26,8 +30,9 @@ public class RoomController {
 		
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
-		
 
+		var it = userdao.findAll();
+		mv.addObject("users", it);
 		
 		return mv;
 	}
@@ -98,6 +103,9 @@ public class RoomController {
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
 
+		var it = userdao.findAll();
+		mv.addObject("users", it);
+		
 		return mv;
 	}
 	
@@ -109,5 +117,21 @@ public class RoomController {
 		return "redirect:/rooms/roomb";
 	}
 	
-	
+	// HTTP GET REQUEST - rooms reservation
+		@GetMapping("/rooms/reservation")
+		public ModelAndView roomsReservation(@RequestParam int id) {
+			Room room = dao.findById(id);
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("rooms/reservation");
+			mv.addObject("room", room);
+			
+			HomeController hc = new HomeController();
+			hc.setAppName(mv, env);
+
+
+			var it = userdao.findAll();
+			mv.addObject("users", it);
+			
+			return mv;
+		}
 }

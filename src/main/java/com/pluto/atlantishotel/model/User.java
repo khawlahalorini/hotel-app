@@ -1,6 +1,7 @@
 package com.pluto.atlantishotel.model;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -26,6 +27,20 @@ public class User {
 	@Column(name="updatedat", nullable = false, updatable = true)
 	@UpdateTimestamp
 	private LocalDateTime updateAt;
+
+	
+	@OneToMany(mappedBy="user")
+	private Set<Room> rooms;
+	
+	
+	
+	public Set<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(Set<Room> rooms) {
+		this.rooms = rooms;
+	}
 
 	public int getId() {
 		return id;
