@@ -119,28 +119,25 @@ public class UserController {
 			return mv;
 		}
 		
-		
-		@GetMapping("/profile/edit")
-		public ModelAndView editArticle(@RequestParam String emailAddress) {
-			User user = dao.findByEmailAddress(emailAddress);
-			
-			ModelAndView mv = new ModelAndView();
-			mv.setViewName("profile/edit");
-			mv.addObject("user", user);
-			
-			HomeController hc = new HomeController();
-			hc.setAppName(mv, env);
-			
-			var it = dao.findAll();
-		
-			mv.addObject("user", it);
-			
-			mv.setViewName("home/index");
-			
-			
-			
-			return mv;
-		}
+		/*
+		 * @GetMapping("/profile/edit") public ModelAndView editArticle(@RequestParam
+		 * String emailAddress) { User user = dao.findByEmailAddress(emailAddress);
+		 * 
+		 * ModelAndView mv = new ModelAndView(); mv.setViewName("profile/edit");
+		 * mv.addObject("user", user);
+		 * 
+		 * HomeController hc = new HomeController(); hc.setAppName(mv, env);
+		 * 
+		 * var it = dao.findAll();
+		 * 
+		 * mv.addObject("user", it);
+		 * 
+		 * mv.setViewName("home/index");
+		 * 
+		 * 
+		 * 
+		 * return mv; }
+		 */
 		
 		 
 }
