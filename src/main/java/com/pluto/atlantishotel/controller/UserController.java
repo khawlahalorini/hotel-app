@@ -119,6 +119,7 @@ public class UserController {
 			return mv;
 		}
 		
+		
 		/*
 		 * @GetMapping("/profile/edit") public ModelAndView editArticle(@RequestParam
 		 * String emailAddress) { User user = dao.findByEmailAddress(emailAddress);
@@ -138,7 +139,9 @@ public class UserController {
 		 * 
 		 * return mv; }
 		 */
-		
+		@GetMapping("/profile/edit")
+		public ModelAndView editArticle(@RequestParam
+				 String emailAddress) {ModelAndView mv = new ModelAndView(); return mv;}
 		 
 }
 
