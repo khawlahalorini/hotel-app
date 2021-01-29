@@ -26,7 +26,7 @@
             </div>  
        
                <div class="form-group">
-                <input type="hidden" class="form-control" value="vacant" name="reservation" required>
+                <input type="hidden" class="form-control" value="${room.user.emailAddress}" name="reservation" required>
             </div> 
             
              <div class="form-group">
@@ -56,7 +56,7 @@
             </div>  
             
               <div class="form-group">
-                <input type="hidden" class="form-control" value="${room.user.emailAddress}" name="reservation" required>
+                <input type="hidden" class="form-control" value="vacant" name="reservation" required>
             </div> 
             
              <div class="form-group">
