@@ -2,6 +2,8 @@ package com.pluto.atlantishotel.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "Room")
@@ -9,17 +11,28 @@ public class Room {
 	
 	 @Id
 	@GeneratedValue
-	 private int id;
-	 
-	 private int roomNo;
-	 
-	 private int price;
-	
-	 private String roomType;
-	 
-	 private String image;
-	 
+	 private int id;	 
+	 private int roomNo;	 
+	 private int price;	
+	 private String roomType;	 
+	 private String image;	 
 	 private String description;
+
+	 private String reservation;
+	 
+	 @ManyToOne
+		@JoinColumn(name = "FK_UserId")
+		private User user;
+
+	 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -55,6 +68,14 @@ public class Room {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(String reservation) {
+		this.reservation = reservation;
 	}
 	 
 	 

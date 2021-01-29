@@ -13,10 +13,22 @@
             
             <div class="form-group">
                 <input type="number" class="form-control" value="${room.price}" name="price" required>
-            </div>       
-            <div class="form-group">
-                <input type="text" class="form-control" value="${room.roomType}" name="roomType" required>
-            </div>  
+            </div>
+         
+             <div class="form-group">
+              <select name="roomType" class="form-control" required>
+                <option value="single">Single</option>
+                <option value="suite">Suite</option>
+              </select>
+              </div>
+                         
+              <div class="form-group">
+              <select name="reservation" class="form-control"  required>
+                <option value="vacant">Vacant</option>
+                <option value="preoccupied">Preoccupied</option>
+              </select>
+              </div>
+            
             <div class="form-group">
                 <input type="text" class="form-control" value="${room.image}" name="image" required>
             </div>  
@@ -24,7 +36,7 @@
             	<input name="id" type="hidden" value="${room.id}">
     
          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	  	<button type="submit"name="room"  class="btn btn-primary">Send</button>
+	  	<button type="submit"name="room"  class="button">Edit Room</button>
         
 </form>
 </div>

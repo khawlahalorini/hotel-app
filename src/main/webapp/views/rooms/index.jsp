@@ -10,7 +10,9 @@
 		<th>Room Type</th>
 		<th>description</th>
 		<th>price</th>
-
+         <security:authorize access="hasRole('ADMIN')">
+		<th>Reservation</th>
+		</security:authorize>	
 		<security:authorize access="isAuthenticated()">
 		<th>Actions</th>
 		</security:authorize>
@@ -25,18 +27,30 @@
 
 <security:authorize access="isAuthenticated()">
          <security:authorize access="hasRole('ADMIN')">
-			<td><a href="${appName}rooms/edit?id=${room.id}">Edit</a>
-		
-			 | <a
-				href="${appName}rooms/delete?id=${room.id}">Delete</a></td>
+         <td>${room.reservation}</td>
+			<td>
+		<a href="${appName}rooms/edit?id=${room.id}"><button class="button">Edit</button></a>
+	    <a href="${appName}rooms/delete?id=${room.id}"><button class="button button1">Delete</button></a>
+		</td>
+			  
 		</security:authorize>	
 		
 		<security:authorize access="hasRole('USER')">
-			<td><a href="${appName}rooms/reservation?id=${room.id}">Reservation</a>
+			<td><a href="${appName}rooms/reservation?id=${room.id}"><button id="points" class="button" onclick="setColor(event)">Reservation</button></a>						
+			<script>
+            function setColor(e) {
+            var target = e.target,
+           count = +target.dataset.count;
+           target.style.backgroundColor = count === 1 ? "green" : "red";
+           target.dataset.count = count === 1 ? 0 : 1;
+           }
+           </script>
+           
 		</security:authorize>
 </security:authorize>			
 
 		</tr>
 	</c:forEach>
 </table>
+
 </div>
