@@ -1,6 +1,7 @@
-<div class="homepage">
-
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../shared/_layout.jsp" />
+<div class="homepage">
 
 <form action="${appName}restaurant/add" method="post">
 
@@ -8,7 +9,7 @@
                 <input type="text" class="form-control" placeholder="Name" name="name" required>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Phone" name="phone" required>
+                <input type="text" class="form-control" placeholder="Phone number" name="phone_number" required>
             </div>
             <div class="form-group">
   <select name="seats" class="form-control"  required>
@@ -25,11 +26,16 @@
     <option value="10">10 & more</option>
   </select>
 </div>
-            <div class="form-group">
-                <input type="date" class="form-control" placeholder="datetime-local" name="date" required>
-            </div>       
+          <div class="form-group">
+                <input type="date" class="form-control" placeholder="date" name="date" required>
+            </div>      
+            
+             <div class="form-group">
+                <input type="time" class="form-control" placeholder="time" name="time" required>
+            </div> 
+            
          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	  	<button type="submit"name="restaurant"  class="btn btn-primary">Send</button>
+	  	<button type="submit" class="btn btn-primary">Send</button>
         
 </form>
 </div>
