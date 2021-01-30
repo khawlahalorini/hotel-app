@@ -6,7 +6,7 @@
                 <input type="text" class="form-control" placeholder="Name" name="name" required>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Phone" name="phone" required>
+                <input type="text" class="form-control" placeholder="Phone number" name="phone_number" required>
             </div>
             <div class="form-group">
   <select name="seats" class="form-control"  required>
@@ -24,8 +24,13 @@
   </select>
 </div>
             <div class="form-group">
-                <input type="date" class="form-control" placeholder="datetime-local" name="date" required>
-            </div>       
+                <input type="date" class="form-control" placeholder="date" name="date" required>
+            </div>      
+            
+             <div class="form-group">
+                <input type="time" class="form-control" placeholder="time" name="time" required>
+            </div> 
+            
          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	  	<button type="submit"name="restaurant"  class="btn btn-primary">Send</button>
         

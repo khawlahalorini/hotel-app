@@ -4,7 +4,7 @@
 
 <table class="table table-striped">
 
-	<tr>
+<%-- 	<tr>
 		<th>Name</th>
 		<th>Phone</th>
 		<th>number of seats</th>
@@ -22,7 +22,7 @@
 			<td>${restaurant.phone}</td>
 			<td>${restaurant.seates}</td>
 			<td>${restaurant.date}</td>
-			<%-- <td>${author.article}</td> --%>
+			<td>${author.article}</td>
 
 <security:authorize access="isAuthenticated()">
 			<td><a href="${appName}restaurant/edit?id=${restaurant.id}">Edit</a>
@@ -33,5 +33,5 @@
 </security:authorize>			
 
 		</tr>
-	</c:forEach>
+	</c:forEach> --%>
 </table>

@@ -6,7 +6,7 @@
                 <input type="text" class="form-control" placeholder="Name" name="name" value="${restaurant.name}" required>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Phone" name="phone" value="${restaurant.phone}" required>
+                <input type="text" class="form-control" placeholder="Phone" name="phone" value="${restaurant.phone}" required>
             </div>
             <div class="form-group">
   <select name="seats" value="${restaurant.seats}" class="form-control"  required>
