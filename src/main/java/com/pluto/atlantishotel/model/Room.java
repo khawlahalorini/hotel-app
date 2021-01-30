@@ -20,18 +20,18 @@ public class Room {
 
 	 private String reservation;
 	 
-	 @ManyToOne
-		@JoinColumn(name = "FK_UserId")
-		private User user;
-
-	 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	 @ManyToOne
+//		@JoinColumn(name = "FK_UserId")
+//		private User user;
+//
+//	 
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 	public int getId() {
 		return id;

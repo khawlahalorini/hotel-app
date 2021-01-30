@@ -24,10 +24,10 @@
          <div class="form-group">
                 <input type="hidden" class="form-control" value="${room.roomType}" name="roomType" required>
             </div>  
-       
+            
                <div class="form-group">
-                <input type="hidden" class="form-control" value="${room.user.emailAddress}" name="reservation" required>
-            </div> 
+                    <input type="hidden" class="form-control" value="<security:authentication property="principal.username" />" name="reservation" required>  
+               </div> 
             
              <div class="form-group">
                 <input type="hidden" class="form-control" value="${room.image}" name="image" required>

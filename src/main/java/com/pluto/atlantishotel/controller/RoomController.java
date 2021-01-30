@@ -50,6 +50,9 @@ public class RoomController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("rooms/roomb");
 		
+		var it = userdao.findAll();
+		mv.addObject("users", it);
+		
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
 		
@@ -74,6 +77,8 @@ public class RoomController {
 	// HTTP GET REQUEST - Author Detail
 	@GetMapping("/rooms/detail")
 	public ModelAndView roomDetails(@RequestParam int id) {		
+		System.out.println(id);
+
 		Room room = dao.findById(id);
 		
 		ModelAndView mv = new ModelAndView();

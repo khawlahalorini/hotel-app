@@ -127,17 +127,17 @@
 			<li><a href="${appName}about/index">About</a></li>			
 			<li><a href="${appName}rooms/roomb">Rooms</a></li>
 			<security:authorize access="hasRole('ADMIN')">
-			<li><a href="${appName}rooms/add">Add Room</a></td>
+			<li><a href="${appName}rooms/add">Add Room</a></li>
 		    </security:authorize>
 			<li><a href="${appName}restaurant/index">Restaurant</a></li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
-		<form class="navbar-form form-inline">
+<!-- 		<form class="navbar-form form-inline">
 			<div class="input-group search-box">								
 				<input type="text" id="search" class="form-control" placeholder="Search here...">
 				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
 			</div>
-		</form>
+		</form> -->
 		
     <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
@@ -146,7 +146,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" alt="John" style="width:100%;height:200px;">
-          <h1>${user.firstName}${user.lastName}GA PLUTO</h1>
+          <h1>${user.getFirstName()} ${user.getLastName()}</h1>
           <h1><security:authentication property="principal.username" /> </h1>
           <div>
     <a href="#"><i class="fa fa-dribbble"></i></a> 

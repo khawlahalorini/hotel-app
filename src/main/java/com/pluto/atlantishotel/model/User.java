@@ -8,6 +8,7 @@ import javax.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+
 @Entity
 @Table(name = "User")
 public class User {
@@ -20,6 +21,19 @@ public class User {
 	private String password;
 	private String userRole;
 	
+//	private String room;
+	
+//	@OneToMany(mappedBy="room")
+//	private Set<Room> rooms;
+	
+//	public Set<Room> getRooms() {
+//		return rooms;
+//	}
+//
+//	public void setRooms(Set<Room> rooms) {
+//		this.rooms = rooms;
+//	}
+	
 	@Column(name="createdAt", nullable = false, updatable = false)
 	@CreationTimestamp
 	private LocalDateTime createAt;
@@ -27,20 +41,23 @@ public class User {
 	@Column(name="updatedat", nullable = false, updatable = true)
 	@UpdateTimestamp
 	private LocalDateTime updateAt;
+    public User() {
+    	
+    }
 
-	
-	@OneToMany(mappedBy="user")
-	private Set<Room> rooms;
-	
-	
-	
-	public Set<Room> getRooms() {
-		return rooms;
+	public User(String password) {
+		// TODO Auto-generated constructor stub
+		this.password = password;
 	}
 
-	public void setRooms(Set<Room> rooms) {
-		this.rooms = rooms;
+	public User(String password, String email) {
+		// TODO Auto-generated constructor stub
+		this.emailAddress = email;
+		this.password = password;
 	}
+
+	
+	
 
 	public int getId() {
 		return id;
@@ -105,4 +122,6 @@ public class User {
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
+	
+
 }

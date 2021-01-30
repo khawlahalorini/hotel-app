@@ -1,6 +1,11 @@
 package com.pluto.atlantishotel.controller;
 
 
+import java.util.ArrayList;
+import java.util.Optional;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -10,9 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pluto.atlantishotel.dao.UserDao;
-import com.pluto.atlantishotel.model.Room;
 import com.pluto.atlantishotel.model.User;
+import com.pluto.atlantishotel.dao.UserDao;
 
 @Controller
 public class UserController {
@@ -23,6 +27,20 @@ public class UserController {
 	@Autowired
 	private UserDao dao;
 	
+	
+	 @GetMapping("/hello")
+	 public String hello() {
+		 return "hi";
+	 }
+	 
+		private ArrayList<User> findAllStub() {
+			// TODO Auto-generated method stub
+			ArrayList<User> retList = new ArrayList<User>();
+	 	    retList.add(new User("1234", "a@b"));
+		    retList.add(new User("123", "s@a")); 
+			return retList;
+		}
+	 
 
 	// To load the registration form
 	   @GetMapping("/user/registration")
@@ -51,8 +69,10 @@ public class UserController {
 		 // Check to user is already registered or not
 		 
 		 var it = dao.findAll();
-		 
+		 System.out.println(it);
+
 		 for(User dbUser : it) {
+			 System.out.println(dbUser.getEmailAddress());
 			 if(dbUser.getEmailAddress().equals(user.getEmailAddress())) {
 				 mv.addObject("message", "User already exists");
 				 return mv;
@@ -78,70 +98,66 @@ public class UserController {
 		public ModelAndView login() {
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("home/index");
-			
 			HomeController hc = new HomeController();
 			hc.setAppName(mv, env);
-			
 			return mv;
 		}
 	
 
-		// HTTP GET REQUEST - user Detail
-		@GetMapping("/user/detail")
-		public ModelAndView authorDetails(@RequestParam String emailAddress) {
-			
-			User user = dao.findByEmailAddress(emailAddress);
+		// HTTP GET REQUEST - user Index
+		@GetMapping("/user/index")
+		public ModelAndView getAuthor() {
+			var it = dao.findAll();
 			
 			ModelAndView mv = new ModelAndView();
-			mv.setViewName("user/detail");
+			mv.setViewName("home/index");
+			mv.addObject("users", it);
+			
+			HomeController hc = new HomeController();
+			hc.setAppName(mv, env);
+			
+			return mv;
+		}
+		
+		// HTTP GET REQUEST - Author Detail
+		@GetMapping("/user/detail")
+		public ModelAndView authorDetails(@RequestParam int id) {
+			System.out.println(id);
+			
+			Optional<User> user = dao.findById(id);
+			
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("home/index");
 			mv.addObject("user", user);
 			
 			HomeController hc = new HomeController();
 			hc.setAppName(mv, env);
-			return mv;
-		}
-
 			
-		
+			return mv;
+			
+		}
 		
 		// HTTP GET REQUEST - user Edit
 		@GetMapping("/user/edit")
-		public ModelAndView editAuthor(@RequestParam String emailAddress) {
-			User user = dao.findByEmailAddress(emailAddress);
+		public ModelAndView editAuthor(@RequestParam int id) {
+			Optional<User> user = dao.findById(id);
 			
 			ModelAndView mv = new ModelAndView();
-			mv.setViewName("user/edit");
-			mv.addObject("user", user);
-			
-			HomeController hc = new HomeController();
-			hc.setAppName(mv, env);
-			
-			return mv;
-		}
-		
-		
-		@GetMapping("/profile/edit")
-		public ModelAndView editArticle(@RequestParam String emailAddress) {
-			User user = dao.findByEmailAddress(emailAddress);
-			
-			ModelAndView mv = new ModelAndView();
-			mv.setViewName("profile/edit");
-			mv.addObject("user", user);
-			
-			HomeController hc = new HomeController();
-			hc.setAppName(mv, env);
-			
-			var it = dao.findAll();
-		
-			mv.addObject("user", it);
-			
 			mv.setViewName("home/index");
+			mv.addObject("user", user);
 			
-			
+			HomeController hc = new HomeController();
+			hc.setAppName(mv, env);
 			
 			return mv;
 		}
 		
+		// HTTP GET REQUEST - Author Delete
+		@GetMapping("/user/delete")
+		public String deleteAuthor(@RequestParam int id) {
+			dao.deleteById(id);
+			return "redirect:/home/index";
+		}
 		 
 }
 
