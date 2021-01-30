@@ -17,6 +17,9 @@
 		<th>Actions</th>
 		</security:authorize>
 	</tr>
+	
+			<security:authorize access="hasRole('USER')">
+	
 	<c:forEach items="${rooms}" var="room">
 	 	<c:if test="${room.reservation == 'vacant'}" >
 	
@@ -29,16 +32,8 @@
 			<td>${room.price}</td>
 
 <security:authorize access="isAuthenticated()">
-         <security:authorize access="hasRole('ADMIN')">
-         <td>${room.reservation}</td>
-			<td>
-		<a href="${appName}rooms/edit?id=${room.id}"><button class="button">Edit</button></a>
-	    <a href="${appName}rooms/delete?id=${room.id}"><button class="button button1">Delete</button></a>
-		</td>
-			  
-		</security:authorize>	
+   
 		
-		<security:authorize access="hasRole('USER')">
 			<td><a href="${appName}rooms/reservation?id=${room.id}"><button id="points" class="button" onclick="setColor(event)">Reservation</button></a>						
 			<script>
 		//	var use = <security:authentication property="principal.username" /> ;
@@ -50,12 +45,52 @@
            }
            </script>
            
-		</security:authorize>
 </security:authorize>			
 
 		</tr>
 		</c:if>
 	</c:forEach>
+	</security:authorize>
+	
+	         <security:authorize access="hasRole('ADMIN')">
+	
+	<c:forEach items="${rooms}" var="room">
+	<tr>
+			<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
+			<td>${room.roomType}</td>
+			<td>${room.description}</td>
+			<td>${room.price}</td>
+
+<security:authorize access="isAuthenticated()">
+         <td>${room.reservation}</td>
+			<td>
+		<a href="${appName}rooms/edit?id=${room.id}"><button class="button">Edit</button></a>
+	    <a href="${appName}rooms/delete?id=${room.id}"><button class="button button1">Delete</button></a>
+		</td>
+			  
+</security:authorize>			
+
+		</tr>
+	</c:forEach>
+	</security:authorize>
+	
+	<security:authorize access="!isAuthenticated()">
+	
+	<c:forEach items="${rooms}" var="room">
+	 	<c:if test="${room.reservation == 'vacant'}" >
+	
+ <%--	<c:if test="${room.reservation == 'vacant' or room.user.userRole == 'ROLE_ADMIN'}" >
+		<c:if test="${room.reservation == 'vacant' or room.reservation == <security:authentication property="principal.username" /> }" >
+ --%>		<tr>
+			<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
+			<td>${room.roomType}</td>
+			<td>${room.description}</td>
+			<td>${room.price}</td>
+
+		</tr>
+		</c:if>
+	</c:forEach>
+	</security:authorize>
 </table>
 
 </div>
