@@ -36,8 +36,8 @@ public class UserController {
 		private ArrayList<User> findAllStub() {
 			// TODO Auto-generated method stub
 			ArrayList<User> retList = new ArrayList<User>();
-	 	    retList.add(new User("1234", "a@b"));
-		    retList.add(new User("123", "s@a")); 
+	 	    retList.add(new User("12345", "a@b"));
+		    retList.add(new User("12345", "g@a")); 
 			return retList;
 		}
 	 

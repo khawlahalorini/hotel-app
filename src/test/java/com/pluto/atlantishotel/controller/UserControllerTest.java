@@ -103,11 +103,11 @@ class UserControllerTest {
 
 	@Test
 	public void register_notRegistered() throws Exception { // test when trying to register a user that exists
-		Iterable<User> iterable = Arrays.asList(new User("12345", "a@b"), new User("123", "a@c"));
+		Iterable<User> iterable = Arrays.asList(new User("12345", "a@b"), new User("12345", "g@a"));
 		Mockito.when(dao.findAll()).thenReturn(iterable);
 
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/user/registration").param("emailAddress", "a@b")
-				.param("firstName", "samar").param("lastName", "fares").param("userRole", "admin")
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/user/registration").param("emailAddress", "g@a")
+				.param("firstName", "GA").param("lastName", "pluto").param("userRole", "admin")
 				.param("password", "12345").contentType(MediaType.APPLICATION_JSON);
 
 		mockMvc.perform(requestBuilder).andExpect(status().isOk())

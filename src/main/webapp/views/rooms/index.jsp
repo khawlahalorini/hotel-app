@@ -17,9 +17,12 @@
 		<th>Actions</th>
 		</security:authorize>
 	</tr>
-
 	<c:forEach items="${rooms}" var="room">
-		<tr>
+	 	<c:if test="${room.reservation == 'vacant'}" >
+	
+ <%--	<c:if test="${room.reservation == 'vacant' or room.user.userRole == 'ROLE_ADMIN'}" >
+		<c:if test="${room.reservation == 'vacant' or room.reservation == <security:authentication property="principal.username" /> }" >
+ --%>		<tr>
 			<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
 			<td>${room.roomType}</td>
 			<td>${room.description}</td>
@@ -38,6 +41,7 @@
 		<security:authorize access="hasRole('USER')">
 			<td><a href="${appName}rooms/reservation?id=${room.id}"><button id="points" class="button" onclick="setColor(event)">Reservation</button></a>						
 			<script>
+		//	var use = <security:authentication property="principal.username" /> ;
             function setColor(e) {
             var target = e.target,
            count = +target.dataset.count;
@@ -50,6 +54,7 @@
 </security:authorize>			
 
 		</tr>
+		</c:if>
 	</c:forEach>
 </table>
 
