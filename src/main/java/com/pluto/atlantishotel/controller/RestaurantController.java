@@ -18,15 +18,27 @@ public class RestaurantController {
 	@Autowired
 	private RestaurantDao dao;
 	
-	// HTTP GET REQUEST - restaurant
+	
+	
+	
 	@GetMapping("/restaurant/index")
-	public ModelAndView reservation() {
+	public ModelAndView restaurant() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/restaurant/add");
+		mv.setViewName("restaurant/index");
 		
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
+		return mv;
+	}
+	
+	// HTTP GET REQUEST - restaurant
+	@GetMapping("/restaurant/add")
+	public ModelAndView reservation() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("restaurant/add");
 		
+		HomeController hc = new HomeController();
+		hc.setAppName(mv, env);
 		return mv;
 	}
 	
@@ -34,7 +46,7 @@ public class RestaurantController {
 	@PostMapping("/restaurant/add")
 	public ModelAndView reservation(Restaurant restaurant) {
 		 ModelAndView mv = new ModelAndView();
-		 mv.setViewName("home/index");
+		 mv.setViewName("restaurant/index");
 		 dao.save(restaurant);
 		 return mv;
 	}

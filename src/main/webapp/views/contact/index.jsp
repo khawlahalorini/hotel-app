@@ -1,3 +1,4 @@
+<div class="homepage">
 <jsp:include page="../shared/_layout.jsp" />
 
 <form  method="post" action="${appName}contact/index">
@@ -15,3 +16,4 @@
 	  	<button type="submit" class="btn btn-primary">Send</button>
             
         </form>
+</div>

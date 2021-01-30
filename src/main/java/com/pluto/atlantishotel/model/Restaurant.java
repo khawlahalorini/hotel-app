@@ -1,12 +1,14 @@
 package com.pluto.atlantishotel.model;
 
 import java.sql.Date;
-import java.sql.Time;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.apache.tomcat.jni.Time;
 
 @Entity
 @Table(name = "Restaurant")
@@ -19,7 +21,7 @@ public class Restaurant {
 	private String seats;
 	
 	private Date date;
-	private Time time;
+	private String time;
 	public int getId() {
 		return id;
 	}
@@ -50,10 +52,10 @@ public class Restaurant {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Time getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Time time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 

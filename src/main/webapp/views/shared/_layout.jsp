@@ -1,6 +1,5 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -16,7 +15,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <script>
 	// Prevent dropdown menu from closing when click inside the form
 	$(document).on("click", ".navbar-right .dropdown-menu", function(e){
@@ -25,11 +23,11 @@
 </script>
 </head>
 <body>
-
 <security:authorize access="!isAuthenticated()">
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Atlantis<b>Hotel</b></a>  		
+	<div class="navbar-header brand">
+		<a href="#" style="text-decoration: none;"><img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle" alt="logo">
+		Atlantis<b>Hotel</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 			<span class="navbar-toggler-icon"></span>
 			<span class="icon-bar"></span>
@@ -42,13 +40,7 @@
 		<ul class="nav navbar-nav">
 			<li><a href="${appName}">Home</a></li>
 					<li><a href="${appName}about/index">About</a></li>			
-			<li class="dropdown">
-				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
-				<ul class="dropdown-menu">					
-					<li><a href="${appName}rooms/index">Rooms</a></li>
-					<li><a href="${appName}suites/index">Suites</a></li>
-				</ul>
-			</li>
+			<li><a href="${appName}rooms/roomb">Rooms</a></li>
 			<li><a href="${appName}restaurant/index">Restaurant</a></li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
@@ -97,7 +89,7 @@
 							</div>
 								
                         	<div class="form-group">
-                    		<select name="userRole" class="form-control" placeholder="Select Role" required="required">
+                    		<select name="userRole" class="form-control" required="required">
 	                		<option value="ROLE_ADMIN">Admin</option>
                  			<option value="ROLE_USER">User</option>
 	                    	</select>
@@ -115,13 +107,12 @@
 	</div>
 </nav>
 </security:authorize>
-
-
 <security:authorize access="isAuthenticated()">
 <security:authentication property="principal.authorities" />
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Atlantis<b>Hotel</b></a>  		
+	<div class="navbar-header brand">
+		<a href="#" style="text-decoration: none;"><img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle" alt="logo">
+		Atlantis<b>Hotel</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 			<span class="navbar-toggler-icon"></span>
 			<span class="icon-bar"></span>
@@ -134,13 +125,10 @@
 		<ul class="nav navbar-nav">
 			<li><a href="${appName}">Home</a></li>
 			<li><a href="${appName}about/index">About</a></li>			
-			<li class="dropdown">
-				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
-				<ul class="dropdown-menu">					
-					<li><a href="${appName}rooms/room">Rooms</a></li>
-					<li><a href="${appName}rooms/suite">Suites</a></li>
-				</ul>
-			</li>
+			<li><a href="${appName}rooms/roomb">Rooms</a></li>
+			<security:authorize access="hasRole('ADMIN')">
+			<li><a href="${appName}rooms/add">Add Room</a></td>
+		    </security:authorize>
 			<li><a href="${appName}restaurant/index">Restaurant</a></li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
@@ -150,15 +138,30 @@
 				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
 			</div>
 		</form>
-		<b>Hi: <security:authentication property="principal.username" /> </b>	
-		<ul class="nav navbar-nav navbar-right">			
-			<li><a href="${appName}logout" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a></li>
-		</ul>
+		
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" alt="John" style="width:100%;height:200px;">
+          <h1>${user.firstName}${user.lastName}GA PLUTO</h1>
+          <h1><security:authentication property="principal.username" /> </h1>
+          <div>
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+  </div>	
+   <a href="${appName}profile/edit" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Edit Profile</a>
+   <a href="${appName}logout" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a>
+        </div>
+      </li>   
+    </ul>
 	</div>
 </nav>
-
 </security:authorize>
-
  
 <c:if test="${message != null}">
 <div class="alert alert-primary fade show" role="alert">
@@ -166,11 +169,14 @@
 </div>
 <% session.removeAttribute("message"); %>
 </c:if>
-
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$('.fade').slideUp(4000);
 	</script>
-
 </body>
 </html>
+
+
+
+
+
