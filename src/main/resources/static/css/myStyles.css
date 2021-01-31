@@ -55,8 +55,8 @@ a {
   font-size: 22px;
 }
 .homepage {
-
-   background-image: url("../images/room.jpg");   
+    padding: 20px;
+    background-image: url("../images/room.jpg");   
     background-position: center; 
 	background-repeat: no-repeat; 
 	background-size: cover;
