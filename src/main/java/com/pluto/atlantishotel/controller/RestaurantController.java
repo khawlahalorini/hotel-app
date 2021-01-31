@@ -1,10 +1,13 @@
 package com.pluto.atlantishotel.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pluto.atlantishotel.dao.RestaurantDao;
@@ -49,5 +52,19 @@ public class RestaurantController {
 		 mv.setViewName("restaurant/index");
 		 dao.save(restaurant);
 		 return mv;
+	}
+	
+	@GetMapping("/restaurant/detail")
+	public ModelAndView reservationDetails(@RequestParam String phone_number) {
+		
+		List<Restaurant> restaurant = dao.findReservationByphoneNumber(phone_number);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("restaurant/detail");
+		mv.addObject("restaurants", restaurant);
+		HomeController hc = new HomeController();
+		hc.setAppName(mv, env);
+		
+		return mv;
+		
 	}
 }
