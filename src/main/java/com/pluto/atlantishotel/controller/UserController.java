@@ -9,14 +9,19 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
+import com.pluto.atlantishotel.dao.UserDao;
 import com.pluto.atlantishotel.model.User;
 import com.pluto.atlantishotel.dao.UserDao;
+
+
 
 @Controller
 public class UserController {
@@ -26,6 +31,7 @@ public class UserController {
 	
 	@Autowired
 	private UserDao dao;
+
 	
 	
 	 @GetMapping("/hello")
@@ -41,6 +47,7 @@ public class UserController {
 			return retList;
 		}
 	 
+
 
 	// To load the registration form
 	   @GetMapping("/user/registration")
@@ -119,44 +126,65 @@ public class UserController {
 			return mv;
 		}
 		
-		// HTTP GET REQUEST - Author Detail
-		@GetMapping("/user/detail")
-		public ModelAndView authorDetails(@RequestParam int id) {
-			System.out.println(id);
-			
-			Optional<User> user = dao.findById(id);
-			
+//<<<<<<< HEAD
+//		// HTTP GET REQUEST - Author Detail
+//		@GetMapping("/user/detail")
+//		public ModelAndView authorDetails(@RequestParam int id) {
+//			System.out.println(id);
+//			
+//			Optional<User> user = dao.findById(id);
+//			
+//			ModelAndView mv = new ModelAndView();
+//			mv.setViewName("home/index");
+//=======
+	
+		@GetMapping("/profile/edit")
+		public ModelAndView editUser(@RequestParam String email) {
+			User user = dao.findByEmailAddress(email);
 			ModelAndView mv = new ModelAndView();
-			mv.setViewName("home/index");
+			mv.setViewName("profile/edit");
 			mv.addObject("user", user);
-			
+			mv.addObject("message", "hi there");
 			HomeController hc = new HomeController();
 			hc.setAppName(mv, env);
-			
 			return mv;
 			
 		}
-		
-		// HTTP GET REQUEST - user Edit
-		@GetMapping("/user/edit")
-		public ModelAndView editAuthor(@RequestParam int id) {
-			Optional<User> user = dao.findById(id);
-			
+
+		@PostMapping("/profile/edit")
+		public ModelAndView edit(User user) {
+			 // Password Encryption
+			 BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
+			 String newPassword = bCrypt.encode(user.getPassword());
+			 user.setPassword(newPassword);
+			dao.save(user);
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("home/index");
 			mv.addObject("user", user);
-			
 			HomeController hc = new HomeController();
 			hc.setAppName(mv, env);
-			
+
 			return mv;
-		}
+		}  
 		
-		// HTTP GET REQUEST - Author Delete
-		@GetMapping("/user/delete")
-		public String deleteAuthor(@RequestParam int id) {
-			dao.deleteById(id);
-			return "redirect:/home/index";
+//		// HTTP GET REQUEST - user Delete
+//		@GetMapping("/user/delete")
+//		public String deleteAuthor(@RequestParam int id) {
+//			dao.deleteById(id);
+//			return "redirect:/home/index";
+//		}
+//		 
+			
+	
+
+		// To load the about page
+		@GetMapping("/about/index")
+		public ModelAndView about() {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("about/index");
+			HomeController hc = new HomeController();
+			hc.setAppName(mv, env);
+			return mv;
 		}
 		 
 }

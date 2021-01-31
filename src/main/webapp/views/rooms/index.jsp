@@ -2,9 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="room">
 <jsp:include page="../shared/_layout.jsp" />
-
 <table class="table table-striped">
-
 	<tr>
 		<th>Room No</th>
 		<th>Room Type</th>
@@ -21,9 +19,10 @@
 			<security:authorize access="hasRole('USER')">
 	
 	<c:forEach items="${rooms}" var="room">
-	 	<c:if test="${room.reservation == 'vacant'}" >
-	
- <%--	<c:if test="${room.reservation == 'vacant' or room.user.userRole == 'ROLE_ADMIN'}" >
+<%-- <c:set var="user" value="<security:authentication property="principal.username" />"/>
+ --%>
+ <c:if test="${room.reservation == 'vacant'|| room.reservation == emailAddress}">	
+ <%--	
 		<c:if test="${room.reservation == 'vacant' or room.reservation == <security:authentication property="principal.username" /> }" >
  --%>		<tr>
 			<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>

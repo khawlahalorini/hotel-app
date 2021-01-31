@@ -44,7 +44,6 @@
 			<li><a href="${appName}restaurant/index">Restaurant</a></li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
-		
 		<ul class="nav navbar-nav navbar-right">			
 			<li>
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login</a>
@@ -87,15 +86,12 @@
 							<div class="form-group">
 								<input name="confirmPassword" type="password" class="form-control" placeholder="Confirm Password" required="required">
 							</div>
-								
-                        	<div class="form-group">
-                    		<select name="userRole" class="form-control" required="required">
-	                		<option value="ROLE_ADMIN">Admin</option>
-                 			<option value="ROLE_USER">User</option>
-	                    	</select>
-	                        </div>
 							<div class="form-group">
-								<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
+								<input name="userRole" type="hidden" class="form-control" value="ROLE_USER" required="required">
+							</div>
+                        
+							<div class="form-group">
+								<label class="checkbox-inline"><h2><input type="checkbox" required="required"> I accept the </h2><a href="#">Terms &amp; Conditions</a></label>
 							</div>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 							<input type="submit" class="btn btn-primary btn-block" value="Sign up">
@@ -132,13 +128,12 @@
 			<li><a href="${appName}restaurant/index">Restaurant</a></li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
-<!-- 		<form class="navbar-form form-inline">
+		<form class="navbar-form form-inline">
 			<div class="input-group search-box">								
 				<input type="text" id="search" class="form-control" placeholder="Search here...">
 				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
 			</div>
-		</form> -->
-		
+		</form>
     <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -146,7 +141,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" alt="John" style="width:100%;height:200px;">
-          <h1>${user.getFirstName()} ${user.getLastName()}</h1>
+          <h1>${user.firstName}${user.lastName}GA PLUTO</h1>
           <h1><security:authentication property="principal.username" /> </h1>
           <div>
     <a href="#"><i class="fa fa-dribbble"></i></a> 
@@ -154,7 +149,7 @@
     <a href="#"><i class="fa fa-linkedin"></i></a>  
     <a href="#"><i class="fa fa-facebook"></i></a> 
   </div>	
-   <a href="${appName}profile/edit" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Edit Profile</a>
+    <a href="${appName}profile/edit?email=<security:authentication property="principal.username" /> " class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Edit Profile</a>
    <a href="${appName}logout" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a>
         </div>
       </li>   
@@ -162,21 +157,11 @@
 	</div>
 </nav>
 </security:authorize>
- 
 <c:if test="${message != null}">
-<div class="alert alert-primary fade show" role="alert">
+<div class="alert alert-primary" role="alert">
 <h2>${message}</h2>
 </div>
-<% session.removeAttribute("message"); %>
 </c:if>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript">
-	$('.fade').slideUp(4000);
-	</script>
+
 </body>
 </html>
-
-
-
-
-
