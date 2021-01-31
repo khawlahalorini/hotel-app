@@ -3,7 +3,7 @@
 <div class="homepage">
 <jsp:include page="../shared/_layout.jsp" />
 
-<c:forEach items="${restaurant}" var="restaurant">
+<c:forEach items="${restaurants}" var="restaurant">
 	
 	<div> ${restaurant.phone_number}</div>
 	<div> ${restaurant.seats} </div>
