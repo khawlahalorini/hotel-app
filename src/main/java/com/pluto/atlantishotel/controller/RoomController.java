@@ -83,7 +83,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			return mv;
 		}
 	
-	// HTTP GET REQUEST - Author Detail
+	// HTTP GET REQUEST - user Detail
 	@GetMapping("/rooms/detail")
 	public ModelAndView roomDetails(@RequestParam int id) {		
 		System.out.println(id);

@@ -90,6 +90,10 @@
 								<input name="userRole" type="hidden" class="form-control" value="ROLE_USER" required="required">
 							</div>
                         
+                           <div class="form-group">
+								<input name="image" type="hidden" class="form-control" value="https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" required="required">
+							</div>
+							
 							<div class="form-group">
 								<label class="checkbox-inline"><h2><input type="checkbox" required="required"> I accept the </h2><a href="#">Terms &amp; Conditions</a></label>
 							</div>
@@ -134,15 +138,20 @@
 				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
 			</div>
 		</form>
+		
     <ul class="nav navbar-nav navbar-right">
+<!-- //////////////////////////////////////////////////////////////////////////////////// -->        
+
+
         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+        <a class="nav-link dropdown-toggle" href="${appName}profile/detail?email=<security:authentication property="principal.username" /> " id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="${user.image}" width="40" height="40" class="rounded-circle">
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" alt="John" style="width:100%;height:200px;">
-          <h1>${user.firstName}${user.lastName}GA PLUTO</h1>
-          <h1><security:authentication property="principal.username" /> </h1>
+        <div class="dropdown-menu" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); max-width: 300px; margin: auto; text-align: center; font-family: arial;" aria-labelledby="navbarDropdownMenuLink">
+          <img src="${user.image}" alt="User Image" style="width:300px;height:200px;">
+          <p>.</p>
+          <h3>${user.firstName}${user.lastName}</h3>
+          <h4>${user.emailAddress}</h4>
           <div>
     <a href="#"><i class="fa fa-dribbble"></i></a> 
     <a href="#"><i class="fa fa-twitter"></i></a>  
@@ -152,7 +161,9 @@
     <a href="${appName}profile/edit?email=<security:authentication property="principal.username" /> " class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Edit Profile</a>
    <a href="${appName}logout" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a>
         </div>
-      </li>   
+      </li>
+      
+<!-- //////////////////////////////////////////////////////////////////////////////////// -->        
     </ul>
 	</div>
 </nav>

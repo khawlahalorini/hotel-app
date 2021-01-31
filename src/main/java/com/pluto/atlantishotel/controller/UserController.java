@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.pluto.atlantishotel.dao.UserDao;
+import com.pluto.atlantishotel.model.Room;
 import com.pluto.atlantishotel.model.User;
 import com.pluto.atlantishotel.dao.UserDao;
 
@@ -113,7 +114,7 @@ public class UserController {
 
 		// HTTP GET REQUEST - user Index
 		@GetMapping("/user/index")
-		public ModelAndView getAuthor() {
+		public ModelAndView getUser() {
 			var it = dao.findAll();
 			
 			ModelAndView mv = new ModelAndView();
@@ -126,17 +127,20 @@ public class UserController {
 			return mv;
 		}
 		
-//<<<<<<< HEAD
-//		// HTTP GET REQUEST - Author Detail
-//		@GetMapping("/user/detail")
-//		public ModelAndView authorDetails(@RequestParam int id) {
-//			System.out.println(id);
-//			
-//			Optional<User> user = dao.findById(id);
-//			
-//			ModelAndView mv = new ModelAndView();
-//			mv.setViewName("home/index");
-//=======
+		// HTTP GET REQUEST - Author Detail
+		@GetMapping("/profile/detail")
+		public ModelAndView roomDetails(@RequestParam String email) {		
+			System.out.println(email);
+			User user = dao.findByEmailAddress(email);
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("home/index");
+			mv.addObject("user", user);			
+			HomeController hc = new HomeController();
+			hc.setAppName(mv, env);
+			
+			return mv;
+			
+		}
 	
 		@GetMapping("/profile/edit")
 		public ModelAndView editUser(@RequestParam String email) {

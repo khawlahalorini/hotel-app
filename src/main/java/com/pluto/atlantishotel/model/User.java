@@ -19,6 +19,7 @@ public class User {
 	private String lastName;
 	private String emailAddress;
 	private String password;
+	private String image;
 	private String userRole;
 	
 //	private String room;
@@ -113,6 +114,15 @@ public class User {
 
 	public void setUpdateAt(LocalDateTime updateAt) {
 		this.updateAt = updateAt;
+	}
+
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public String getUserRole() {

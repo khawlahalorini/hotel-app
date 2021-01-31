@@ -14,8 +14,21 @@
 				name="emailAddress" value="${user.emailAddress}" required>
 		</div>
 		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Image"
+				name="image" value="${user.image}" required>
+		</div>
+		<div class="form-group">
 			<input type="password" class="form-control" placeholder="password"
 				name="password" value="" required>
+		</div>
+		<div class="form-group">
+			<input type="password" class="form-control" placeholder="Confirm password"
+				name="confirmPassword" value="" required>
+		</div>
+		
+		<div class="form-group">
+			<input type="hidden" class="form-control" value="${user.userRole}"
+				name="userRole" value="" required>
 		</div>
 		<input name="id" type="hidden" value="${user.id}"> <input
 			type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
