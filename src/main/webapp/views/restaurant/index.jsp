@@ -3,7 +3,8 @@
 <div class="homepage">
 
 <a href="${appName}restaurant/add">reservation</a>
-<a href="${appName}restaurant/detail">check </a>
+      <input type="text" name="phone_number" />
+<a href="${appName}restaurant/detail?phone_number=${phone_number}">check </a>
 <a href="${appName}restaurant/edit">edit your reservation </a>
 <a href="${appName}restaurant/delete">cancel your reservation </a>
 
