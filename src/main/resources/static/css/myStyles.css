@@ -56,7 +56,7 @@ a {
 }
 .homepage {
 
-     background-image: url("../images/room.jpg");  
+   background-image: url("../images/room.jpg");   
     background-position: center; 
 	background-repeat: no-repeat; 
 	background-size: cover;
@@ -292,3 +292,16 @@ body {
 			display: block;
 		}
 	}
+	#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+/*    overflow: hidden;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px); */
+  filter: blur(0px);
+}
