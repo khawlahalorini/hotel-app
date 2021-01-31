@@ -10,6 +10,5 @@
 		      <button type="submit" class="btn btn-primary">check</button>
 	</form>
 <a href="${appName}restaurant/edit">edit your reservation </a>
-<a href="${appName}restaurant/delete">cancel your reservation </a>
 
 </div>

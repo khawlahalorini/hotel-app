@@ -7,7 +7,7 @@
 	
 	<div> ${restaurant.phone_number}</div>
 	<div> ${restaurant.seats} </div>
-	
+	<a href="${appName}restaurant/delete?id=${restaurant.id}"><button class="button">Delete</button></a>
 </c:forEach>
 
 </div>

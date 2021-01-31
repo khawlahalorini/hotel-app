@@ -164,8 +164,8 @@
 </security:authorize>
  
 <c:if test="${message != null}">
-<div class="alert alert-primary fade show" role="alert">
-<h2>${message}</h2>
+<div class="alert alert-primary" role="alert">
+   <h1>${message}</h1>
 </div>
 <% session.removeAttribute("message"); %>
 </c:if>
