@@ -76,7 +76,7 @@
 	</c:forEach>
 	</security:authorize>
 	
-	<security:authorize access="!isAuthenticated()">
+<security:authorize access="!isAuthenticated()">
 	
 	<c:forEach items="${rooms}" var="room">
 	 	<c:if test="${room.reservation == 'vacant'}" >

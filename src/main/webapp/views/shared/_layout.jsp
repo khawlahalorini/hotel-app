@@ -26,7 +26,7 @@
 <security:authorize access="!isAuthenticated()">
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header brand">
-		<a href="#" style="text-decoration: none;"><img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle" alt="logo">
+		<a href="#" style="text-decoration: none;"><img src="http://adel-kalu.com/index/images/logo.png" width="40" height="40" class="rounded-circle" alt="logo">
 		Atlantis<b>Hotel</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 			<span class="navbar-toggler-icon"></span>
@@ -41,9 +41,24 @@
 			<li><a href="${appName}">Home</a></li>
 					<li><a href="${appName}about/index">About</a></li>			
 			<li><a href="${appName}rooms/roomb">Rooms</a></li>
-			<li><a href="${appName}restaurant/index">Restaurant</a></li>
+				<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Restaurant <b class="caret"></b></a>
+				<ul class="dropdown-menu">					
+					<li><a class="dropdown-item" href="${appName}restaurant/add">booking</a></li>
+					<li><a class="dropdown-item" href="${appName}restaurant/edit">edit booking</a></li>
+					<li><a class="dropdown-item" href="${appName}restaurant/delete">cancel booking</a></li>
+				</ul>
+			</li>
+			
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
+		
+		  <form class="navbar-form form-inline" action="${appName}restaurant/detail?phone_number=${phone_number}" method="get">
+      <input class="form-control mr-sm-2" type="search" name="phone_number" placeholder="Search" aria-label="Search">
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> 
+    
 		<ul class="nav navbar-nav navbar-right">			
 			<li>
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login</a>
@@ -91,11 +106,11 @@
 							</div>
                         
                            <div class="form-group">
-								<input name="image" type="hidden" class="form-control" value="https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" required="required">
+								<input name="image" type="hidden" class="form-control" value="images/profile.jpg" required="required">
 							</div>
 							
 							<div class="form-group">
-								<label class="checkbox-inline"><h2><input type="checkbox" required="required"> I accept the </h2><a href="#">Terms &amp; Conditions</a></label>
+								<label class="checkbox-inline"><h4><input type="checkbox" required="required"> I accept the </h4><a href="#">Terms &amp; Conditions</a></label>
 							</div>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 							<input type="submit" class="btn btn-primary btn-block" value="Sign up">
@@ -111,7 +126,7 @@
 <security:authentication property="principal.authorities" />
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header brand">
-		<a href="#" style="text-decoration: none;"><img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle" alt="logo">
+		<a href="#" style="text-decoration: none;"><img src="http://adel-kalu.com/index/images/logo.png" width="40" height="40" class="rounded-circle" alt="logo">
 		Atlantis<b>Hotel</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 			<span class="navbar-toggler-icon"></span>
@@ -129,15 +144,22 @@
 			<security:authorize access="hasRole('ADMIN')">
 			<li><a href="${appName}rooms/add">Add Room</a></li>
 		    </security:authorize>
-			<li><a href="${appName}restaurant/index">Restaurant</a></li>
+		<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Restaurant <b class="caret"></b></a>
+				<ul class="dropdown-menu">					
+					<li><a class="dropdown-item" href="${appName}restaurant/add">booking</a></li>
+					<li><a class="dropdown-item" href="${appName}restaurant/edit">edit booking</a></li>
+					<li><a class="dropdown-item" href="${appName}restaurant/delete">cancel booking</a></li>
+				</ul>
+			</li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
-		<form class="navbar-form form-inline">
-			<div class="input-group search-box">								
-				<input type="text" id="search" class="form-control" placeholder="Search here...">
-				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
-			</div>
-		</form>
+		
+		  <form class="navbar-form form-inline" action="${appName}restaurant/detail?phone_number=${phone_number}" method="get">
+      <input class="form-control mr-sm-2" type="search" name="phone_number" placeholder="Search" aria-label="Search">
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> 
 		
     <ul class="nav navbar-nav navbar-right">
 <!-- //////////////////////////////////////////////////////////////////////////////////// -->        
@@ -145,7 +167,7 @@
 
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="${appName}profile/detail?email=<security:authentication property="principal.username" /> " id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="${user.image}" width="40" height="40" class="rounded-circle">
+          <img src="http://adel-kalu.com/index/images/profile.jpg" width="40" height="40" class="rounded-circle">
         </a>
         <div class="dropdown-menu" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); max-width: 300px; margin: auto; text-align: center; font-family: arial;" aria-labelledby="navbarDropdownMenuLink">
           <img src="${user.image}" alt="User Image" style="width:300px;height:200px;">
