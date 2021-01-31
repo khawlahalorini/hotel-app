@@ -60,8 +60,7 @@ public class RestaurantController {
 		List<Restaurant> restaurant = dao.findReservationByphoneNumber(phone_number);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("restaurant/detail");
-		mv.addObject("restaurant", restaurant);
-		
+		mv.addObject("restaurants", restaurant);
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
 		
