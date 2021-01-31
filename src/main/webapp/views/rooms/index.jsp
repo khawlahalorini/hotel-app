@@ -2,42 +2,43 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="room">
 <jsp:include page="../shared/_layout.jsp" />
-
 <table class="table table-striped">
-
 	<tr>
 		<th>Room No</th>
 		<th>Room Type</th>
 		<th>description</th>
 		<th>price</th>
-         <security:authorize access="hasRole('ADMIN')">
+         <security:authorize access="hasRole('ADMIN') ">
 		<th>Reservation</th>
-		</security:authorize>	
+		</security:authorize>
+		 <security:authorize access="hasRole('USER') ">
+		<th>Reservation</th>
+		</security:authorize>		
 		<security:authorize access="isAuthenticated()">
 		<th>Actions</th>
 		</security:authorize>
 	</tr>
-
+	
+			<security:authorize access="hasRole('USER')">
+	
 	<c:forEach items="${rooms}" var="room">
-		<tr>
+<%-- <c:set var="user" value="<security:authentication property="principal.username" />"/>
+ --%>
+ <c:if test="${room.reservation == 'vacant'|| room.reservation == emailAddress}">	
+ <%--	
+		<c:if test="${room.reservation == 'vacant' or room.reservation == <security:authentication property="principal.username" /> }" >
+ --%>		<tr>
 			<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
 			<td>${room.roomType}</td>
 			<td>${room.description}</td>
 			<td>${room.price}</td>
-
+            <td>${room.reservation}</td>
 <security:authorize access="isAuthenticated()">
-         <security:authorize access="hasRole('ADMIN')">
-         <td>${room.reservation}</td>
-			<td>
-		<a href="${appName}rooms/edit?id=${room.id}"><button class="button">Edit</button></a>
-	    <a href="${appName}rooms/delete?id=${room.id}"><button class="button button1">Delete</button></a>
-		</td>
-			  
-		</security:authorize>	
+   
 		
-		<security:authorize access="hasRole('USER')">
 			<td><a href="${appName}rooms/reservation?id=${room.id}"><button id="points" class="button" onclick="setColor(event)">Reservation</button></a>						
 			<script>
+		//	var use = <security:authentication property="principal.username" /> ;
             function setColor(e) {
             var target = e.target,
            count = +target.dataset.count;
@@ -46,11 +47,49 @@
            }
            </script>
            
-		</security:authorize>
+</security:authorize>			
+
+		</tr>
+		</c:if>
+	</c:forEach>
+	</security:authorize>
+	
+	         <security:authorize access="hasRole('ADMIN')">
+	
+	<c:forEach items="${rooms}" var="room">
+	<tr>
+			<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
+			<td>${room.roomType}</td>
+			<td>${room.description}</td>
+			<td>${room.price}</td>
+
+<security:authorize access="isAuthenticated()">
+         <td>${room.reservation}</td>
+			<td>
+		<a href="${appName}rooms/edit?id=${room.id}"><button class="button">Edit</button></a>
+	    <a href="${appName}rooms/delete?id=${room.id}"><button class="button button1">Delete</button></a>
+		</td>
+			  
 </security:authorize>			
 
 		</tr>
 	</c:forEach>
+	</security:authorize>
+	
+	<security:authorize access="!isAuthenticated()">
+	
+	<c:forEach items="${rooms}" var="room">
+	 	<c:if test="${room.reservation == 'vacant'}" >
+			<tr>
+			<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
+			<td>${room.roomType}</td>
+			<td>${room.description}</td>
+			<td>${room.price}</td>
+
+		</tr>
+		</c:if>
+	</c:forEach>
+	</security:authorize>
 </table>
 
 </div>

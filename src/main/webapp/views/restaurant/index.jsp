@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="../shared/_layout.jsp" />
 <div class="homepage">
+<jsp:include page="../shared/_layout.jsp" />
 
 <a href="${appName}restaurant/add">reservation</a>
       

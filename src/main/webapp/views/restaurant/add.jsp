@@ -1,7 +1,7 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="../shared/_layout.jsp" />
 <div class="homepage">
+<jsp:include page="../shared/_layout.jsp" />
 
 <form action="${appName}restaurant/add" method="post">
 
@@ -35,7 +35,7 @@
             </div> 
             
          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	  	<button type="submit" class="btn btn-primary">Send</button>
-        
+         	  	<button type="submit"class="button">Reservation</button>
+                 
 </form>
 </div>
