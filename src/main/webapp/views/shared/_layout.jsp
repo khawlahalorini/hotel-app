@@ -154,7 +154,7 @@
     <a href="#"><i class="fa fa-linkedin"></i></a>  
     <a href="#"><i class="fa fa-facebook"></i></a> 
   </div>	
-   <a href="${appName}profile/edit" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Edit Profile</a>
+    <a href="${appName}profile/edit?email=<security:authentication property="principal.username" /> " class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Edit Profile</a>
    <a href="${appName}logout" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a>
         </div>
       </li>   
