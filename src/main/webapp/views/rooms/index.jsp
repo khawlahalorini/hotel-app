@@ -8,9 +8,12 @@
 		<th>Room Type</th>
 		<th>description</th>
 		<th>price</th>
-         <security:authorize access="hasRole('ADMIN')">
+         <security:authorize access="hasRole('ADMIN') ">
 		<th>Reservation</th>
-		</security:authorize>	
+		</security:authorize>
+		 <security:authorize access="hasRole('USER') ">
+		<th>Reservation</th>
+		</security:authorize>		
 		<security:authorize access="isAuthenticated()">
 		<th>Actions</th>
 		</security:authorize>
@@ -29,7 +32,7 @@
 			<td>${room.roomType}</td>
 			<td>${room.description}</td>
 			<td>${room.price}</td>
-
+            <td>${room.reservation}</td>
 <security:authorize access="isAuthenticated()">
    
 		
@@ -77,10 +80,7 @@
 	
 	<c:forEach items="${rooms}" var="room">
 	 	<c:if test="${room.reservation == 'vacant'}" >
-	
- <%--	<c:if test="${room.reservation == 'vacant' or room.user.userRole == 'ROLE_ADMIN'}" >
-		<c:if test="${room.reservation == 'vacant' or room.reservation == <security:authentication property="principal.username" /> }" >
- --%>		<tr>
+			<tr>
 			<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
 			<td>${room.roomType}</td>
 			<td>${room.description}</td>
