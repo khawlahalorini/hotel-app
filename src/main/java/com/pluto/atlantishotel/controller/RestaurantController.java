@@ -75,9 +75,21 @@ public class RestaurantController {
 			 mv.setViewName("restaurant/index");
 			 var it = dao.findById(id); 
 			 if(it != null) {
-				 mv.addObject("message", "deleted");
 				 dao.deleteById(id);
+				 mv.addObject("message", "deleted");
 			 }
+			 HomeController hc = new HomeController();
+			 hc.setAppName(mv, env);
+		     return mv; 
+	}
+	
+	@GetMapping("/restaurant/edit")
+	public ModelAndView reservationEdit(@RequestParam int id) {
+			 ModelAndView mv = new ModelAndView();
+			 mv.setViewName("restaurant/edit");
+			 Restaurant restaurant = dao.findById(id);
+			 System.out.println(restaurant);
+			 mv.addObject("restaurant", restaurant);
 			 HomeController hc = new HomeController();
 			 hc.setAppName(mv, env);
 		     return mv; 
