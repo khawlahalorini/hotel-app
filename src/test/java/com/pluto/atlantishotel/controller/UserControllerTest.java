@@ -1,5 +1,4 @@
 package com.pluto.atlantishotel.controller;
-
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -16,16 +15,12 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.web.servlet.ModelAndView;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*; // A ResultMatcher matches the result of an executed request against some expectation.
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.pluto.atlantishotel.dao.UserDao;
 import com.pluto.atlantishotel.model.User;
-
 import ch.qos.logback.core.net.ObjectWriter;
-
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.ArrayList;
@@ -35,17 +30,14 @@ import java.util.List;
 //@RunWith(SpringRunner.class) annotation tells JUnit to run using Spring's testing support. 
 //SpringRunner provides support for loading Spring ApplicationContext, autowiring beans into the test class.
 //@WebMvcTest Annotation that can be used for a Spring MVC test that focuses only on Spring MVC components.
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(UserController.class)
 class UserControllerTest {
 	/** Main entry point for server-side Spring MVC test support. **/
 	@Autowired
 	private MockMvc mockMvc;
-
 	@MockBean
 	private UserDao dao;
-
 //	@Test
 //	void hello_ReturningString_Success() throws Exception {
 //		
@@ -69,7 +61,6 @@ class UserControllerTest {
 //		String expected = "hi";
 //		Assert.assertEquals(real, expected);
 //	}
-
 //	@Test
 //	public void login_ReturnsOk200_Success() throws Exception{
 //       
@@ -100,21 +91,15 @@ class UserControllerTest {
 //		;
 //
 //	}
-
 	@Test
 	public void register_notRegistered() throws Exception { // test when trying to register a user that exists
 		Iterable<User> iterable = Arrays.asList(new User("12345", "a@b"), new User("12345", "g@a"));
 		Mockito.when(dao.findAll()).thenReturn(iterable);
-
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/user/registration").param("emailAddress", "g@a")
 				.param("firstName", "GA").param("lastName", "pluto").param("userRole", "admin")
 				.param("password", "12345").contentType(MediaType.APPLICATION_JSON);
-
 		mockMvc.perform(requestBuilder).andExpect(status().isOk())
 				.andExpect(model().attribute("message", "User already exists"));
-
 		;
-
 	}
-
 }
