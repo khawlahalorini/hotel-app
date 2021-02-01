@@ -69,6 +69,7 @@ public class RestaurantController {
 		return mv;
 	}
 	
+	
 	@GetMapping("/restaurant/delete")
 	public ModelAndView reservationDelete(@RequestParam int id) {
 			 ModelAndView mv = new ModelAndView();
