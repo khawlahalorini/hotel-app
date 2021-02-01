@@ -13,7 +13,18 @@
     </th>
 
 </tr>
-    <tr>    
+<tr>
+      <th> Table number</th>
+      <th> Edit table </th>
+      <th> Delete table </th>
+   
+
+</tr>
+
+    <tr>
+    <th>
+        <h2>12</h2>  
+    </th>  
       <th scope="col">
 	  	<form action="${appName}restaurant/edit" method="post">
             
