@@ -45,7 +45,7 @@ public class RoomController {
 	public String addRoom(Room room) {
 		dao.save(room);
 		
-		return "redirect:/rooms/roomb";
+		return "redirect:/rooms/index";
 	}
 	
 	// HTTP GET REQUEST - Rooms roomb
