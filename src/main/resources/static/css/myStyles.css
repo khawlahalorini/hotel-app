@@ -34,8 +34,9 @@
 }
 	.room {
 	padding:20px;
-	background-color: #474e5d;
-    background-position: center; 
+		background-color: #474e5d;
+/*     background-image: url("../images/room.jpg");   
+ */    background-position: center; 
 	background-repeat: no-repeat; 
 	background-size: cover;
 	width:100%;
@@ -43,8 +44,10 @@
 }
 .img
 {
-	width:400px;
-	height:400px;
+/* 	width:500px;
+ */	
+ 	width:400px;
+    height:400px;
 	margin-top:5%;
     margin-left: 100px;
     border-radius: 10px;
@@ -62,8 +65,10 @@ a {
 }
 .homepage {
     padding: 20px;
-    background-image: url("../images/room.jpg");   
-    background-position: center; 
+    	background-color: #474e5d;
+    
+/*     background-image: url("../images/room.jpg");   
+ */    background-position: center; 
 	background-repeat: no-repeat; 
 	background-size: cover;
 	width:100%;
