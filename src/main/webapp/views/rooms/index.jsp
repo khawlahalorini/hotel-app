@@ -10,9 +10,6 @@
 		<th>price</th>
          <security:authorize access="hasRole('ADMIN') ">
 		<th>Reservation</th>
-		</security:authorize>
-		 <security:authorize access="hasRole('USER') ">
-		<th>Reservation</th>
 		</security:authorize>		
 		<security:authorize access="isAuthenticated()">
 		<th>Actions</th>
@@ -32,7 +29,6 @@
 			<td>${room.roomType}</td>
 			<td>${room.description}</td>
 			<td>${room.price}</td>
-            <td>${room.reservation}</td>
 <security:authorize access="isAuthenticated()">
 <c:choose>
   <c:when test="${room.reservation == emailAddress}">
