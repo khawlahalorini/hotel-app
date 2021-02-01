@@ -148,9 +148,11 @@
 		
     <ul class="nav navbar-nav navbar-right">
 <!-- //////////////////////////////////////////////////////////////////////////////////// -->        
+  <li>  <a href="${appName}profile/index?email=<security:authentication property="principal.username" /> "><img src="http://adel-kalu.com/index/images/profile.jpg" width="40" height="40" class="rounded-circle"></a></li>
+<li> <a href="${appName}logout"  class="btn btn-primary  get-started-btn mt-1 mb-1">Logout</a></li>
 
 
-        <li class="nav-item dropdown">
+<%--         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="${appName}profile/detail?email=<security:authentication property="principal.username" /> " id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="http://adel-kalu.com/index/images/profile.jpg" width="40" height="40" class="rounded-circle">
         </a>
@@ -168,7 +170,7 @@
     <a href="${appName}profile/edit?email=<security:authentication property="principal.username" /> " class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Edit Profile</a>
    <a href="${appName}logout" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a>
         </div>
-      </li>
+      </li> --%>
       
 <!-- //////////////////////////////////////////////////////////////////////////////////// -->        
     </ul>

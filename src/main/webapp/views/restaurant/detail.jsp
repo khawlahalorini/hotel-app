@@ -3,11 +3,11 @@
 <div class="homepage">
 <jsp:include page="../shared/_layout.jsp" />
 
-<table class="table">
+<table class="table table-striped">
 <tr>
-    <th scope="col">
+    <th scope="col" colspan="4">
     <form class="navbar-form form-inline" action="${appName}restaurant/detail?phone_number=${phone_number}" method="get">
-      <input class="form-control mr-sm-2" type="search" name="phone_number" placeholder="Search" aria-label="Search">
+      <input class="form-control" type="search" name="phone_number" placeholder="Search" aria-label="Search">
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form> 
