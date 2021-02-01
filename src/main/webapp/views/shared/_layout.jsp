@@ -26,7 +26,7 @@
 <security:authorize access="!isAuthenticated()">
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header brand">
-		<a href="#" style="text-decoration: none;"><img src="http://adel-kalu.com/index/images/logo.png" width="40" height="40" class="rounded-circle" alt="logo">
+		<a href="${appName}" style="text-decoration: none;"><img src="http://adel-kalu.com/index/images/logo.png" width="60" height="50" class="rounded-circle" alt="logo">
 		Atlantis<b>Hotel</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 			<span class="navbar-toggler-icon"></span>

@@ -34,7 +34,7 @@
 }
 	.room {
 	padding:20px;
-	background-image: url("../images/room.jpg");
+	background-color: #474e5d;
     background-position: center; 
 	background-repeat: no-repeat; 
 	background-size: cover;
@@ -43,7 +43,7 @@
 }
 .img
 {
-	width:500px;
+	width:400px;
 	height:400px;
 	margin-top:5%;
     margin-left: 100px;

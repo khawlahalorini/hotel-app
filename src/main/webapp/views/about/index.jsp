@@ -33,7 +33,7 @@ html {
 .about-section {
   padding: 50px;
   text-align: center;
-	background-image: url("../images/room.jpg");
+	background-color: #474e5d;
     background-position: center; 
 	background-repeat: no-repeat; 
 	background-size: cover;  color: white;
@@ -70,10 +70,10 @@ html {
   background-color: #555;
 }
 
-img{
+ .image{
    width:100px;
    height:200px;
-}
+} 
 
 @media screen and (max-width: 650px) {
   .column {
@@ -86,6 +86,7 @@ img{
 <body>
 
 <div class="about-section">
+<img src="http://adel-kalu.com/index/images/logo.png" width="60" height="50"/>
   <h1>About Us</h1>
   <p>We are students of Misk Academy and General Assembly.</p>
   <p>This is our project for Java-Spring boot I hope you like it.</p>
@@ -96,7 +97,7 @@ img{
 
   <div class="column">
     <div class="card">
-      <img src="../images/think.jpg" alt="Jane" style="width:100%">
+      <img class="image" src="../images/think.jpg" alt="Jane" style="width:100%">
       <div class="container">
         <h2>Adel Kalu</h2>
         <p class="title">Software Engineer</p>
@@ -109,38 +110,38 @@ img{
 
    <div class="column">
     <div class="card">
-      <img src="../images/think.jpg" alt="Jane" style="width:100%">
+      <img class="image" src="../images/think.jpg" alt="Jane" style="width:100%">
       <div class="container">
         <h2>Aeshah Alshammari</h2>
         <p class="title">Software Engineer</p>
         <p>The more you learn, the more you earn.</p>
-        <p>example@gmail.com</p>
-       <p><a href=""><button class="button">Contact</button></a></p> 
+        <p>aisha379aisha@gmail.com</p>
+       <p><a href="https://www.linkedin.com/in/aeshah-alshammari-35ba12201"><button class="button">Contact</button></a></p> 
       </div>
     </div>
   </div>
   
    <div class="column">
     <div class="card">
-      <img src="../images/think.jpg" alt="Jane" style="width:100%">
+      <img class="image" src="../images/think.jpg" alt="Jane" style="width:100%">
       <div class="container">
         <h2>Khawlah Alorini</h2>
         <p class="title">Software Engineer</p>
         <p>The more you learn, the more you earn.</p>
-        <p>example@gmail.com</p>
-       <p><a href=""><button class="button">Contact</button></a></p>
+        <p>khawlahoraini@gmail.com</p>
+       <p><a href="https://www.linkedin.com/in/khawlahsaleh"><button class="button">Contact</button></a></p>
       </div>
     </div>
   </div>
 
    <div class="column">
     <div class="card">
-      <img src="../images/think.jpg" alt="Jane" style="width:100%">
+      <img class="image" src="../images/think.jpg" alt="Jane" style="width:100%">
       <div class="container">
         <h2>Bushra Al-Ghamdi</h2>
         <p class="title">Software Engineer</p>
         <p>The more you learn, the more you earn.</p>
-        <p>example@gmail.com</p>
+        <p>Bushra.gh96@gmail.com</p>
        <p><a href=""><button class="button">Contact</button></a></p>
       </div>
     </div>
