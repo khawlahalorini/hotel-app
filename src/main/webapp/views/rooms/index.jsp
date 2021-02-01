@@ -34,9 +34,14 @@
 			<td>${room.price}</td>
             <td>${room.reservation}</td>
 <security:authorize access="isAuthenticated()">
-   
-		
-			<td><a href="${appName}rooms/reservation?id=${room.id}"><button id="points" class="button" onclick="setColor(event)">Reservation</button></a>						
+<c:choose>
+  <c:when test="${room.reservation == emailAddress}">
+   <td> <button type="submit"name="room"  class="button button1">cancel reservation</button></td>
+  </c:when>
+  <c:otherwise>
+         	<td><a href="${appName}rooms/reservation?id=${room.id}"><button id="points" class="button" onclick="setColor(event)">Reservation</button></a>				
+  </c:otherwise>
+</c:choose>	
 			<script>
 		//	var use = <security:authentication property="principal.username" /> ;
             function setColor(e) {

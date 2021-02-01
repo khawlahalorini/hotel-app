@@ -116,7 +116,6 @@
 </nav>
 </security:authorize>
 <security:authorize access="isAuthenticated()">
-<security:authentication property="principal.authorities" />
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header brand">
 		<a href="#" style="text-decoration: none;"><img src="http://adel-kalu.com/index/images/logo.png" width="40" height="40" class="rounded-circle" alt="logo">

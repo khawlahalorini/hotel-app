@@ -3,7 +3,7 @@
 <div class="room">
 <jsp:include page="../shared/_layout.jsp" />
 
-		<security:authorize access="hasRole('USER')">
+
 <table class="table">
 <tr>
     <th scope="col"><h2>Choose room reservation or cancellation:</h2></th>
@@ -74,10 +74,5 @@
     </tr>
  
   </table>
-
-
-
-
-		</security:authorize>
 
 </div>
