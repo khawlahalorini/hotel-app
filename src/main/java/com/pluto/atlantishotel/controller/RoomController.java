@@ -71,8 +71,8 @@ public class RoomController {
 
 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-		}
 		    mv.addObject("emailAddress", ((UserDetailsImpl) authentication.getPrincipal()).getUsername());  
+		}
 		    
 			mv.setViewName("rooms/index");
 			mv.addObject("rooms", it);
