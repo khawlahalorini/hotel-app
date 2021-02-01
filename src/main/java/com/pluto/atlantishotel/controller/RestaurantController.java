@@ -67,4 +67,22 @@ public class RestaurantController {
 		return mv;
 		
 	}
+	
+	// HTTP GET REQUEST - restaurant
+	@GetMapping("/restaurant/edit")
+	public ModelAndView edit() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("restaurant/edit");	
+		HomeController hc = new HomeController();
+		hc.setAppName(mv, env);
+		return mv;
+	}
+	
+  //  HTTP GET REQUEST - restaurant Delete
+	@GetMapping("/restaurant/delete")
+	public String deleteAuthor(@RequestParam int id) {
+		dao.deleteById(id);
+	    return "redirect:/restaurant/index";
+	}
+	
 }

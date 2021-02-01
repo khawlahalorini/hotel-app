@@ -46,7 +46,6 @@
 				<ul class="dropdown-menu">					
 					<li><a class="dropdown-item" href="${appName}restaurant/add">booking</a></li>
 					<li><a class="dropdown-item" href="${appName}restaurant/edit">edit booking</a></li>
-					<li><a class="dropdown-item" href="${appName}restaurant/delete">cancel booking</a></li>
 				</ul>
 			</li>
 			
@@ -149,7 +148,6 @@
 				<ul class="dropdown-menu">					
 					<li><a class="dropdown-item" href="${appName}restaurant/add">booking</a></li>
 					<li><a class="dropdown-item" href="${appName}restaurant/edit">edit booking</a></li>
-					<li><a class="dropdown-item" href="${appName}restaurant/delete">cancel booking</a></li>
 				</ul>
 			</li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>
