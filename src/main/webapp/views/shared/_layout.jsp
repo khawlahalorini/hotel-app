@@ -45,7 +45,7 @@
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Restaurant <b class="caret"></b></a>
 				<ul class="dropdown-menu">			
 					<li><a class="dropdown-item" href="${appName}restaurant/index">restaurant</a></li>							
-					<li><a class="dropdown-item" href="${appName}restaurant/add">booking</a></li>
+					<li><a class="dropdown-item" href="${appName}restaurant/add">New booking</a></li>
 				</ul>
 			</li>
 			
@@ -178,7 +178,11 @@
 </security:authorize>
 <c:if test="${message != null}">
 <div class="alert alert-primary" role="alert">
+<<<<<<< HEAD
+   <h1>${message}</h1>
+=======
 <h2>${message}</h2>
+>>>>>>> master
 </div>
 </c:if>
 
