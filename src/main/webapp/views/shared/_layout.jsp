@@ -43,20 +43,14 @@
 			<li><a href="${appName}rooms/roomb">Rooms</a></li>
 				<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Restaurant <b class="caret"></b></a>
-				<ul class="dropdown-menu">					
+				<ul class="dropdown-menu">			
+					<li><a class="dropdown-item" href="${appName}restaurant/index">restaurant</a></li>							
 					<li><a class="dropdown-item" href="${appName}restaurant/add">booking</a></li>
-					<li><a class="dropdown-item" href="${appName}restaurant/edit">edit booking</a></li>
 				</ul>
 			</li>
 			
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
-		
-		  <form class="navbar-form form-inline" action="${appName}restaurant/detail?phone_number=${phone_number}" method="get">
-      <input class="form-control mr-sm-2" type="search" name="phone_number" placeholder="Search" aria-label="Search">
-      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> 
     
 		<ul class="nav navbar-nav navbar-right">			
 			<li>
@@ -145,19 +139,13 @@
 		    </security:authorize>
 		<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Restaurant <b class="caret"></b></a>
-				<ul class="dropdown-menu">					
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="${appName}restaurant/index">restaurant</a></li>					
 					<li><a class="dropdown-item" href="${appName}restaurant/add">booking</a></li>
-					<li><a class="dropdown-item" href="${appName}restaurant/edit">edit booking</a></li>
 				</ul>
 			</li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>
 		</ul>
-		
-		  <form class="navbar-form form-inline" action="${appName}restaurant/detail?phone_number=${phone_number}" method="get">
-      <input class="form-control mr-sm-2" type="search" name="phone_number" placeholder="Search" aria-label="Search">
-      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> 
 		
     <ul class="nav navbar-nav navbar-right">
 <!-- //////////////////////////////////////////////////////////////////////////////////// -->        

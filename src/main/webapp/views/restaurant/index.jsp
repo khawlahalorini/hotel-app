@@ -4,20 +4,33 @@
 
 <table class="table">
 <tr>
-    <th scope="col"><h2>Choose room reservation or cancellation:</h2></th>
+    <th scope="col">
+    <form class="navbar-form form-inline" action="${appName}restaurant/detail?phone_number=${phone_number}" method="get">
+      <input class="form-control mr-sm-2" type="search" name="phone_number" placeholder="Search" aria-label="Search">
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> 
+    </th>
 
 </tr>
     <tr>    
       <th scope="col">
-
+	  	<form action="${appName}restaurant/edit" method="post">
+            
+            	<input name="id" type="hidden" value="${restaurant.id}">
+    
+         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	  	<button type="submit"  class="button">edit booking</button>
+	  	</form>
+	  	
       </th>
       <th scope="col">
       <form action="${appName}restaurant/delete" method="post">
             
-            	<input name="id" type="hidden" value="${room.id}">
+            	<input name="id" type="hidden" value="${restaurant.id}">
     
          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	  	<button type="submit"name="room"  class="button button1">cancel reservation</button>
+	  	<button type="submit"  class="button button1">cancel booking</button>
         
 </form>
       </th>
