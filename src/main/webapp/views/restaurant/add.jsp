@@ -14,7 +14,7 @@
 		<div class="form-group">
 		<label>Phone number:</label>
 		<small>Format: 966xxxxxxxxx</small>
-			<input type="text" class="form-control" pattern="966[0-9]{9}" placeholder="Phone number"
+			<input type="text" class="form-control" pattern="966[0-9]{9}" placeholder="966xxxxxxxxx"
 				name="phone_number" required>
 		</div>
 		<div class="form-group">
