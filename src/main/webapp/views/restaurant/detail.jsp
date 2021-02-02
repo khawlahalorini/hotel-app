@@ -20,7 +20,7 @@
 		<tr>
 		    <th>Name</th>
 			<th>Number of seats</th>
-			<th>Date & Time</th>
+			<th>Date - Time</th>
 			<th></th>
 			<th></th>
 
