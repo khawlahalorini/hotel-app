@@ -127,6 +127,20 @@ public class UserController {
 			return mv;
 		}
 		
+		// HTTP GET REQUEST - profile Index
+		@GetMapping("/profile/index")
+		public ModelAndView getProfile(@RequestParam String email) {
+			User user = dao.findByEmailAddress(email);
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("profile/index");
+			mv.addObject("user", user);
+			HomeController hc = new HomeController();
+			hc.setAppName(mv, env);
+			return mv;
+			
+		}
+
+		
 		// HTTP GET REQUEST - Author Detail
 		@GetMapping("/profile/detail")
 		public ModelAndView roomDetails(@RequestParam String email) {		

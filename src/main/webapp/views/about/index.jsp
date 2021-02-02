@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=windows-1256"
     pageEncoding="windows-1256"%>
+    <jsp:include page="../shared/_layout.jsp" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +63,7 @@ html {
   background-color: #000;
   text-align: center;
   cursor: pointer;
-  width: 100%;
+  width: 450px;
 }
 
 

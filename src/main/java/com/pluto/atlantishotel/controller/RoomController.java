@@ -45,7 +45,7 @@ public class RoomController {
 	public String addRoom(Room room) {
 		dao.save(room);
 		
-		return "redirect:/rooms/roomb";
+		return "redirect:/rooms/index";
 	}
 	
 	// HTTP GET REQUEST - Rooms roomb
@@ -71,8 +71,8 @@ public class RoomController {
 
 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-		}
 		    mv.addObject("emailAddress", ((UserDetailsImpl) authentication.getPrincipal()).getUsername());  
+		}
 		    
 			mv.setViewName("rooms/index");
 			mv.addObject("rooms", it);
@@ -83,6 +83,19 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			return mv;
 		}
 	
+		// HTTP GET REQUEST - Rooms index1
+				@GetMapping("/rooms/index1")
+				public ModelAndView getindex1() {
+					var it = dao.findAll();
+					ModelAndView mv = new ModelAndView();				    
+					mv.setViewName("rooms/index");
+					mv.addObject("rooms", it);
+					HomeController hc = new HomeController();
+					hc.setAppName(mv, env);
+					
+					return mv;
+				}
+			
 	// HTTP GET REQUEST - user Detail
 	@GetMapping("/rooms/detail")
 	public ModelAndView roomDetails(@RequestParam int id) {		
@@ -128,23 +141,5 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return "redirect:/rooms/roomb";
 	}
 	
-
-	// HTTP GET REQUEST - rooms reservation
-		@GetMapping("/rooms/reservation")
-		public ModelAndView roomsReservation(@RequestParam int id) {
-			Room room = dao.findById(id);
-			ModelAndView mv = new ModelAndView();
-			mv.setViewName("rooms/reservation");
-			mv.addObject("room", room);
-			
-			HomeController hc = new HomeController();
-			hc.setAppName(mv, env);
-
-
-			var it = userdao.findAll();
-			mv.addObject("users", it);
-			
-			return mv;
-		}
 }
 

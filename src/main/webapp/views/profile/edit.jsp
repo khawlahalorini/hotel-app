@@ -25,13 +25,12 @@
 			<input type="password" class="form-control" placeholder="Confirm password"
 				name="confirmPassword" value="" required>
 		</div>
-		
 		<div class="form-group">
 			<input type="hidden" class="form-control" value="${user.userRole}"
 				name="userRole" value="" required>
 		</div>
 		<input name="id" type="hidden" value="${user.id}"> <input
 			type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		<button type="submit" name="user" class="btn btn-primary">Send</button>
+		<button type="submit" name="user" class="button">Send</button>
 	</form>
 </div>

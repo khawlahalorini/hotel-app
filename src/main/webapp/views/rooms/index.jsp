@@ -10,9 +10,6 @@
 		<th>price</th>
          <security:authorize access="hasRole('ADMIN') ">
 		<th>Reservation</th>
-		</security:authorize>
-		 <security:authorize access="hasRole('USER') ">
-		<th>Reservation</th>
 		</security:authorize>		
 		<security:authorize access="isAuthenticated()">
 		<th>Actions</th>
@@ -32,20 +29,70 @@
 			<td>${room.roomType}</td>
 			<td>${room.description}</td>
 			<td>${room.price}</td>
-            <td>${room.reservation}</td>
 <security:authorize access="isAuthenticated()">
-   
-		
-			<td><a href="${appName}rooms/reservation?id=${room.id}"><button id="points" class="button" onclick="setColor(event)">Reservation</button></a>						
-			<script>
-		//	var use = <security:authentication property="principal.username" /> ;
-            function setColor(e) {
-            var target = e.target,
-           count = +target.dataset.count;
-           target.style.backgroundColor = count === 1 ? "green" : "red";
-           target.dataset.count = count === 1 ? 0 : 1;
-           }
-           </script>
+<c:choose>
+  <c:when test="${room.reservation == emailAddress}">
+   <td> 
+      <form action="${appName}rooms/add" method="post">
+           <div class="form-group">
+                <input type="hidden" class="form-control" value="${room.roomNo}" name="roomNo" required>
+            </div>
+            <div class="form-group">
+                <input type="hidden" class="form-control" value="${room.description}" name="description" required>
+            </div>   
+            <div class="form-group">
+                <input type="hidden" class="form-control" value="${room.price}" name="price" required>
+            </div>
+         <div class="form-group">
+                <input type="hidden" class="form-control" value="${room.roomType}" name="roomType" required>
+            </div>  
+            
+              <div class="form-group">
+                <input type="hidden" class="form-control" value="vacant" name="reservation" required>
+            </div> 
+            
+             <div class="form-group">
+                <input type="hidden" class="form-control" value="${room.image}" name="image" required>
+            </div>           
+            
+            	<input name="id" type="hidden" value="${room.id}">
+    
+         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	  	<button type="submit"name="room"  class="button button1">cancel reservation</button>        
+</form>
+   </td>
+  </c:when>
+  <c:otherwise>
+         	<td>
+     <form action="${appName}rooms/add" method="post">
+           <div class="form-group">
+                <input type="hidden" class="form-control" value="${room.roomNo}" name="roomNo" required>
+            </div>
+            <div class="form-group">
+                <input type="hidden" class="form-control" value="${room.description}" name="description" required>
+            </div>   
+            <div class="form-group">
+                <input type="hidden" class="form-control" value="${room.price}" name="price" required>
+            </div>
+         <div class="form-group">
+                <input type="hidden" class="form-control" value="${room.roomType}" name="roomType" required>
+            </div>  
+            
+               <div class="form-group">
+                    <input type="hidden" class="form-control" value="<security:authentication property="principal.username" />" name="reservation" required>  
+               </div> 
+            
+             <div class="form-group">
+                <input type="hidden" class="form-control" value="${room.image}" name="image" required>
+            </div>           
+            
+            	<input name="id" type="hidden" value="${room.id}">
+    
+         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	  	<button type="submit"name="room"  class="button">Reservation</button>
+        
+</form>  </c:otherwise>
+</c:choose>	
            
 </security:authorize>			
 

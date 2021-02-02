@@ -27,7 +27,7 @@ public class RestaurantController {
 	@GetMapping("/restaurant/index")
 	public ModelAndView restaurant() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("restaurant/index");
+		mv.setViewName("restaurant/detail");
 		
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
@@ -49,7 +49,7 @@ public class RestaurantController {
 	@PostMapping("/restaurant/add")
 	public ModelAndView reservation(Restaurant restaurant) {
 		 ModelAndView mv = new ModelAndView();
-		 mv.setViewName("restaurant/index");
+		 mv.setViewName("restaurant/detail");
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
 		 dao.save(restaurant);
@@ -73,7 +73,7 @@ public class RestaurantController {
 	@GetMapping("/restaurant/delete")
 	public ModelAndView reservationDelete(@RequestParam int id) {
 			 ModelAndView mv = new ModelAndView();
-			 mv.setViewName("restaurant/index");
+			 mv.setViewName("restaurant/detail");
 			 var it = dao.findById(id); 
 			 if(it != null) {
 				 dao.deleteById(id);
