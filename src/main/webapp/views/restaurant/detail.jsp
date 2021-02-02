@@ -10,7 +10,7 @@
 					action="${appName}restaurant/detail?phone_number=${phone_number}"
 					method="get">
 					<input class="form-control" type="search" name="phone_number"
-						placeholder="Phone number"> 
+						placeholder="966xxxxxxxxx"> 
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Check</button>
 				</form>
