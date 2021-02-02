@@ -47,7 +47,7 @@ public class RoomController {
 	public String addRoom(Room room) {
 		dao.save(room);
 
-		return "redirect:/rooms/index";
+		return "redirect:/rooms/roomb";
 	}
 
 	// HTTP GET REQUEST - Rooms roomb
@@ -117,5 +117,14 @@ public class RoomController {
 
 		return "redirect:/rooms/roomb";
 	}
+	
+	@GetMapping("/rooms/cancel")
+	public String cancelRoom(@RequestParam int id) {
+		Room room = dao.findById(id);
+		room.setReservation("vacant");
+		dao.save(room);
+		return "redirect:/rooms/index?type="+room.getRoomType();
+	}
+	
 
 }

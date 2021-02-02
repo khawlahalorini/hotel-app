@@ -35,41 +35,10 @@
 						<security:authorize access="isAuthenticated()">
 							<c:choose>
 								<c:when test="${room.reservation == emailAddress}">
-									<td>
-										<form action="${appName}rooms/add" method="post">
-											<div class="form-group">
-												<input type="hidden" class="form-control"
-													value="${room.roomNo}" name="roomNo" required>
-											</div>
-											<div class="form-group">
-												<input type="hidden" class="form-control"
-													value="${room.description}" name="description" required>
-											</div>
-											<div class="form-group">
-												<input type="hidden" class="form-control"
-													value="${room.price}" name="price" required>
-											</div>
-											<div class="form-group">
-												<input type="hidden" class="form-control"
-													value="${room.roomType}" name="roomType" required>
-											</div>
-
-											<div class="form-group">
-												<input type="hidden" class="form-control" value="vacant"
-													name="reservation" required>
-											</div>
-
-											<div class="form-group">
-												<input type="hidden" class="form-control"
-													value="${room.image}" name="image" required>
-											</div>
-
-											<input name="id" type="hidden" value="${room.id}"> <input
-												type="hidden" name="${_csrf.parameterName}"
-												value="${_csrf.token}" />
-											<button type="submit" name="room" class="btn btn-danger">cancel
-												reservation</button>
-										</form>
+									<td>											
+									<a href="${appName}rooms/cancel?id=${room.id}">
+											<button type="submit" name="room" class="btn btn-danger">
+											cancel reservation</button></a>
 									</td>
 								</c:when>
 								<c:otherwise>
