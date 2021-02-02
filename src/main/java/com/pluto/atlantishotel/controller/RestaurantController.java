@@ -17,84 +17,78 @@ import com.pluto.atlantishotel.model.Restaurant;
 public class RestaurantController {
 	@Autowired
 	private Environment env;
-	
+
 	@Autowired
 	private RestaurantDao dao;
-	
-	
-	
-	
+
+	@Autowired
+	private HomeController hc;
+
 	@GetMapping("/restaurant/index")
 	public ModelAndView restaurant() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("restaurant/detail");
-		
-		HomeController hc = new HomeController();
+		ModelAndView mv = new ModelAndView("restaurant/detail");
 		hc.setAppName(mv, env);
+
 		return mv;
 	}
-	
-	// HTTP GET REQUEST - restaurant
+
+	// HTTP GET REQUEST - new reservation
 	@GetMapping("/restaurant/add")
 	public ModelAndView reservation() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("restaurant/add");
-		
-		HomeController hc = new HomeController();
+		ModelAndView mv = new ModelAndView("restaurant/add");
+
 		hc.setAppName(mv, env);
+
 		return mv;
 	}
-	
-	// HTTP POST REQUEST - restaurant
+
+	// HTTP POST REQUEST - new reservation
 	@PostMapping("/restaurant/add")
 	public ModelAndView reservation(Restaurant restaurant) {
-		 ModelAndView mv = new ModelAndView();
-		 mv.setViewName("restaurant/detail");
-		HomeController hc = new HomeController();
+		dao.save(restaurant);
+
+		ModelAndView mv = new ModelAndView("restaurant/detail");
+
 		hc.setAppName(mv, env);
-		 dao.save(restaurant);
-		 return mv;
+
+		return mv;
 	}
-	
+
+	// HTTP GET REQUEST - handle information
 	@GetMapping("/restaurant/detail")
 	public ModelAndView reservationDetails(@RequestParam String phone_number) {
-		
-		List<Restaurant> restaurant = dao.findReservationByphoneNumber(phone_number);
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("restaurant/detail");
+		List<Restaurant> restaurant = dao.findByPhoneNumber(phone_number);
+
+		ModelAndView mv = new ModelAndView("restaurant/detail");
 		mv.addObject("restaurants", restaurant);
-		HomeController hc = new HomeController();
+
+		hc.setAppName(mv, env);
+
+		return mv;
+	}
+
+	@GetMapping("/restaurant/delete")
+	public ModelAndView reservationDelete(@RequestParam int id) {
+		dao.deleteById(id);
+		
+		ModelAndView mv = new ModelAndView("restaurant/detail");
+		mv.addObject("message", "Your reservation cancled");
+
+		hc.setAppName(mv, env);
+
+		return mv;
+	}
+
+	@GetMapping("/restaurant/edit")
+	public ModelAndView reservationEdit(@RequestParam int id) {
+		Restaurant restaurant = dao.findById(id);
+
+		ModelAndView mv = new ModelAndView("restaurant/edit");
+		mv.addObject("restaurant", restaurant);
+		
 		hc.setAppName(mv, env);
 		
 		return mv;
 	}
-	
-	
-	@GetMapping("/restaurant/delete")
-	public ModelAndView reservationDelete(@RequestParam int id) {
-			 ModelAndView mv = new ModelAndView();
-			 mv.setViewName("restaurant/detail");
-			 var it = dao.findById(id); 
-			 if(it != null) {
-				 dao.deleteById(id);
-				 mv.addObject("message", "deleted");
-			 }
-			 HomeController hc = new HomeController();
-			 hc.setAppName(mv, env);
-		     return mv; 
-	}
-	
-	@GetMapping("/restaurant/edit")
-	public ModelAndView reservationEdit(@RequestParam int id) {
-			 ModelAndView mv = new ModelAndView();
-			 mv.setViewName("restaurant/edit");
-			 Restaurant restaurant = dao.findById(id);
-			 System.out.println(restaurant);
-			 mv.addObject("restaurant", restaurant);
-			 HomeController hc = new HomeController();
-			 hc.setAppName(mv, env);
-		     return mv; 
-	}
-	
-	
+
 }
