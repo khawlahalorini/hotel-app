@@ -178,11 +178,9 @@
 </security:authorize>
 <c:if test="${message != null}">
 <div class="alert alert-primary" role="alert">
-<<<<<<< HEAD
+
    <h1>${message}</h1>
-=======
-<h2>${message}</h2>
->>>>>>> master
+
 </div>
 </c:if>
 
