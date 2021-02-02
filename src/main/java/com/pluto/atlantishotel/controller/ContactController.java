@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import com.pluto.atlantishotel.model.Contact;
 
 import com.pluto.atlantishotel.dao.ContactDao;
@@ -17,29 +16,36 @@ public class ContactController {
 
 	@Autowired
 	private Environment env;
-	
+
 	@Autowired
 	private ContactDao dao;
-	
-	// HTTP GET REQUEST - contact index
+
+	// HTTP GET REQUEST - contact
 	@GetMapping("/contact/index")
 	public ModelAndView contactUs() {
+
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("contact/index");
+
+		HomeController hc = new HomeController();
+		hc.setAppName(mv, env);
+
+		return mv;
+	}
+
+	// HTTP POST REQUEST - contact
+	@PostMapping("/contact/index")
+	public ModelAndView contactUs(Contact contact) {
+		
+		dao.save(contact);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("contact/index");
+		mv.addObject("message", "Thanks for contacting us");
 		
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
 		
 		return mv;
 	}
-	
-	// HTTP POST REQUEST - contact index
-	@PostMapping("/contact/index")
-	public ModelAndView contactUs(Contact contact) {
-		 ModelAndView mv = new ModelAndView();
-		 mv.setViewName("home/index");
-		 dao.save(contact);
-		 return mv;
-	}
-	
 }
