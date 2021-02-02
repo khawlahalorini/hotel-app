@@ -65,8 +65,8 @@ public class RoomController {
 
 	// HTTP GET REQUEST - Rooms index
 	@GetMapping("/rooms/index")
-	public ModelAndView getindex() {
-		var it = dao.findAll();
+	public ModelAndView getindex(@RequestParam String type) {
+		var it = dao.findByRoomType(type);
 		
 		ModelAndView mv = new ModelAndView("rooms/index");
 		mv.addObject("rooms", it);
