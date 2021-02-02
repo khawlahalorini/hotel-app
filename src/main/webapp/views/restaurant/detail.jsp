@@ -15,7 +15,7 @@
     </th>
 
 </tr>
-<tr>
+<tr Style="color: white" >
       <th> Number of seats</th>
       <th>Date & Time</th>
       <th> Edit table </th>

@@ -1,9 +1,12 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
 <div class="im">
 <div class="room">
 <jsp:include page="../shared/_layout.jsp" />
-<table class="table table-striped">
+<table class="table table-striped styleall">
+
 	<tr>
 		<th>Room No</th>
 		<th>Room Type</th>
