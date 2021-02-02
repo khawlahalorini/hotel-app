@@ -139,8 +139,8 @@
 		<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Restaurant <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="${appName}restaurant/index">restaurant</a></li>					
-					<li><a class="dropdown-item" href="${appName}restaurant/add">New booking</a></li>
+					<li><a class="dropdown-item" href="${appName}restaurant/index">Reservation check</a></li>							
+					<li><a class="dropdown-item" href="${appName}restaurant/add">New Reservation</a></li>
 				</ul>
 			</li>
 			<li><a href="${appName}contact/index">Contact Us</a></li>

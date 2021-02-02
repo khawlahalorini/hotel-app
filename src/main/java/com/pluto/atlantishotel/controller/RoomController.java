@@ -1,4 +1,5 @@
 package com.pluto.atlantishotel.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -13,120 +14,108 @@ import com.pluto.atlantishotel.dao.RoomDao;
 import com.pluto.atlantishotel.dao.UserDao;
 import com.pluto.atlantishotel.model.Room;
 import com.pluto.atlantishotel.model.UserDetailsImpl;
+
 @Controller
 public class RoomController {
-	@Autowired 
+	@Autowired
 	private Environment env;
-	
+
 	@Autowired
 	private UserDao userdao;
-	
-	// HTTP GET REQUEST - Room Add
-	@GetMapping("/rooms/add")
-	public ModelAndView addRoom() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("rooms/add");
-		
-		HomeController hc = new HomeController();
-		hc.setAppName(mv, env);
 
-
-		var it = userdao.findAll();
-		mv.addObject("users", it);
-		
-		return mv;
-	}
-	
 	@Autowired
 	private RoomDao dao;
-	
-	// HTTP POST REQUEST - Room Add
+
+	@Autowired
+	private HomeController hc;
+
+	// HTTP GET REQUEST - Adding room - AdminRole
+	@GetMapping("/rooms/add")
+	public ModelAndView addRoom() {
+		var it = userdao.findAll();
+		
+		ModelAndView mv = new ModelAndView("rooms/add");
+		mv.addObject("users", it);
+
+		hc.setAppName(mv, env);
+
+		return mv;
+	}
+
+	// HTTP POST REQUEST - Adding room - AdminRole
 	@PostMapping("/rooms/add")
 	public String addRoom(Room room) {
 		dao.save(room);
-		
+
 		return "redirect:/rooms/index";
 	}
-	
+
 	// HTTP GET REQUEST - Rooms roomb
 	@GetMapping("/rooms/roomb")
-	public ModelAndView getRoom() {		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("rooms/roomb");
-		
+	public ModelAndView getRoom() {
 		var it = userdao.findAll();
+		
+		ModelAndView mv = new ModelAndView("rooms/roomb");
 		mv.addObject("users", it);
-		
-		HomeController hc = new HomeController();
+
 		hc.setAppName(mv, env);
-		
+
 		return mv;
 	}
-	
-	// HTTP GET REQUEST - Rooms index
-		@GetMapping("/rooms/index")
-		public ModelAndView getindex() {
-			var it = dao.findAll();
-			ModelAndView mv = new ModelAndView();
 
-Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	// HTTP GET REQUEST - Rooms index
+	@GetMapping("/rooms/index")
+	public ModelAndView getindex() {
+		var it = dao.findAll();
+		
+		ModelAndView mv = new ModelAndView("rooms/index");
+		mv.addObject("rooms", it);
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-		    mv.addObject("emailAddress", ((UserDetailsImpl) authentication.getPrincipal()).getUsername());  
+			mv.addObject("emailAddress", ((UserDetailsImpl) authentication.getPrincipal()).getUsername());
 		}
-		    
-			mv.setViewName("rooms/index");
-			mv.addObject("rooms", it);
-			
-			HomeController hc = new HomeController();
-			hc.setAppName(mv, env);
-			
-			return mv;
-		}
-			
+
+		hc.setAppName(mv, env);
+
+		return mv;
+	}
+
 	// HTTP GET REQUEST - user Detail
 	@GetMapping("/rooms/detail")
-	public ModelAndView roomDetails(@RequestParam int id) {		
-		System.out.println(id);
-
+	public ModelAndView roomDetails(@RequestParam int id) {
 		Room room = dao.findById(id);
-		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("rooms/detail");
+
+		ModelAndView mv = new ModelAndView("rooms/detail");
 		mv.addObject("room", room);
-		
-		HomeController hc = new HomeController();
+
 		hc.setAppName(mv, env);
-		
+
 		return mv;
-		
+
 	}
-	
+
 	// HTTP GET REQUEST - Rooms Edit
 	@GetMapping("/rooms/edit")
 	public ModelAndView editRoom(@RequestParam int id) {
 		Room room = dao.findById(id);
-		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("rooms/edit");
-		mv.addObject("room", room);
-		
-		HomeController hc = new HomeController();
-		hc.setAppName(mv, env);
-
 		var it = userdao.findAll();
-		mv.addObject("users", it);
 		
+		ModelAndView mv = new ModelAndView("rooms/edit");
+		mv.addObject("room", room);
+		mv.addObject("users", it);
+
+		hc.setAppName(mv, env);
 
 		return mv;
 	}
-	
+
 	// HTTP GET REQUEST - room Delete
 	@GetMapping("/rooms/delete")
 	public String deleteRoom(@RequestParam int id) {
-		
 		dao.deleteById(id);
+
 		return "redirect:/rooms/roomb";
 	}
-	
-}
 
+}

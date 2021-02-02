@@ -20,32 +20,28 @@ public class ContactController {
 	@Autowired
 	private ContactDao dao;
 
+	@Autowired
+	private HomeController hc;
+
 	// HTTP GET REQUEST - contact
 	@GetMapping("/contact/index")
 	public ModelAndView contactUs() {
-
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("contact/index");
-
-		HomeController hc = new HomeController();
+		ModelAndView mv = new ModelAndView("contact/index");
 		hc.setAppName(mv, env);
-
+		
 		return mv;
 	}
 
 	// HTTP POST REQUEST - contact
 	@PostMapping("/contact/index")
 	public ModelAndView contactUs(Contact contact) {
-		
 		dao.save(contact);
-		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("contact/index");
+
+		ModelAndView mv = new ModelAndView("contact/index");
 		mv.addObject("message", "Thanks for contacting us");
-		
-		HomeController hc = new HomeController();
+
 		hc.setAppName(mv, env);
-		
+
 		return mv;
 	}
 }
