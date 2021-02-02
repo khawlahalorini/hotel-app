@@ -1,3 +1,4 @@
+<div class="im">
 <div class="homepage">
 	<jsp:include page="../shared/_layout.jsp" />
 	<form action="${appName}profile/edit" method="post">
@@ -33,4 +34,4 @@
 			type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		<button type="submit" name="user" class="button">Send</button>
 	</form>
-</div>
+</div></div>

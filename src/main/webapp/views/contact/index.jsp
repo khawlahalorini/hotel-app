@@ -1,3 +1,4 @@
+<div class="im">
 <div class="homepage">
 <jsp:include page="../shared/_layout.jsp" />
 
@@ -16,4 +17,5 @@
 	  	<button type="submit" class="btn btn-primary">Send</button>
             
         </form>
+</div>
 </div>

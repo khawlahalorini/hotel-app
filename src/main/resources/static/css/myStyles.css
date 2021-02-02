@@ -34,13 +34,24 @@
 }
 	.room {
 	padding:20px;
-		background-color: #474e5d;
-/*     background-image: url("../images/room.jpg");   
- */    background-position: center; 
+		/* background-color: #474e5d; */  
+    background: rgba(00, 00, 00, 0.7);
+	/* margin-left:100px;
+	margin-right: 100px; */
+    height:100%;
+    width:100%;
+}
+.im
+{
+			
+    background-image: url("../images/back.jpg");
+	/* opacity: 0.5; */
+	   background-position: center;  
 	background-repeat: no-repeat; 
 	background-size: cover;
 	width:100%;
 	height: 100%;
+	
 }
 
 .img
@@ -51,11 +62,11 @@
    	margin-top:5%;
     margin-left: 14%; 
     border-radius: 10px;
-    opacity: 0.5;
+    /* opacity: 0.5; */
 }
-.img:hover {
+/* .img:hover {
   opacity: 1.0;
-}
+} */
 .brand b{
 	color:#33cabb;
 }
@@ -63,9 +74,13 @@ a {
   text-decoration: none;
   font-size: 22px;
 }
+.imres{
+  background-image: url("../images/res.jpg");   
+	
+}
 .homepage {
     padding: 20px;
-    	background-color: #474e5d;
+    	/* background-color: #474e5d; */
     
 /*     background-image: url("../images/room.jpg");   
  */    background-position: center; 
@@ -73,6 +88,13 @@ a {
 	background-size: cover;
 	width:100%;
 	height: 100%; 
+	/*++  */
+	
+	  background: rgba(00, 00, 00, 0.7);
+	/* margin-left:100px;
+	margin-right: 100px; */
+    height:100%;
+    width:100%;
 }
 body {
 		font-family: 'Varela Round', sans-serif;
