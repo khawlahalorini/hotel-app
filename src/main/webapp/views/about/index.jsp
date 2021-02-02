@@ -63,7 +63,7 @@ html {
   background-color: #000;
   text-align: center;
   cursor: pointer;
-  width: 100%;
+  width: 450px;
 }
 
 
