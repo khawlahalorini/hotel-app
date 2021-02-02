@@ -9,7 +9,7 @@ var video = document.getElementById("myVideo");
 
 </script>
 
-<video autoplay muted loop id="myVideo">
+<video autoplay loop id="myVideo">
   <source src="video/homev.mp4" type="video/mp4">
 </video> 
 
