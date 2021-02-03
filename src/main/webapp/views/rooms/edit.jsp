@@ -37,7 +37,7 @@
             	<input name="id" type="hidden" value="${room.id}">
     
          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	  	<button type="submit"name="room"  class="button">Edit Room</button>
+	  	<button type="submit"name="room"  class="btn btn-success">Save</button>
         
 </form>
 </div></div>

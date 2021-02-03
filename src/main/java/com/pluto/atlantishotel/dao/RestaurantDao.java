@@ -14,6 +14,6 @@ public interface RestaurantDao extends CrudRepository<Restaurant, Integer> {
      public Restaurant findById(int id);
      
 	 @Query("SELECT restaurant FROM Restaurant restaurant WHERE restaurant.phone_number= ?1")
-	 List<Restaurant> findReservationByphoneNumber(@Param("phone_number") String phone_number);
+	 List<Restaurant> findByPhoneNumber(@Param("phone_number") String phone_number);
     
 }

@@ -62,11 +62,9 @@
    	margin-top:5%;
     margin-left: 14%; 
     border-radius: 10px;
-    /* opacity: 0.5; */
+    
 }
-/* .img:hover {
-  opacity: 1.0;
-} */
+
 .brand b{
 	color:#33cabb;
 }
@@ -80,10 +78,8 @@ a {
 }
 .homepage {
     padding: 20px;
-    	/* background-color: #474e5d; */
-    
-/*     background-image: url("../images/room.jpg");   
- */    background-position: center; 
+
+    background-position: center; 
 	background-repeat: no-repeat; 
 	background-size: cover;
 	width:100%;
@@ -91,8 +87,6 @@ a {
 	/*++  */
 	
 	  background: rgba(00, 00, 00, 0.7);
-	/* margin-left:100px;
-	margin-right: 100px; */
     height:100%;
     width:100%;
 }
@@ -331,11 +325,6 @@ body {
   bottom: 0;
   min-width: 100%; 
   min-height: 100%;
-/*    overflow: hidden;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px); */
   filter: blur(0px);
 }
 .white{
@@ -344,7 +333,7 @@ body {
 }
 .styleall
 {
-	color:#000000;
+	
 	font-family: 'Big Shoulders Display', cursive;
 	
 }

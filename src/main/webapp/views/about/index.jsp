@@ -104,7 +104,7 @@ html {
         <p class="title">Software Engineer</p>
         <p>The more you learn, the more you earn.</p>
         <p>adel.b.kalu@gmail.com</p>
-       <p><a href="http://adel-kalu.com/"><button class="button">Contact</button></a></p>       
+       <p><a href="https://www.linkedin.com/in/adel-kalu/"><button class="button">Contact</button></a></p>       
       </div>
     </div>
   </div>
