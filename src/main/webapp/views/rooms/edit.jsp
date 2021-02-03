@@ -1,3 +1,4 @@
+<div class="im">
 <div class="homepage">
 
 <jsp:include page="../shared/_layout.jsp" />
@@ -39,4 +40,4 @@
 	  	<button type="submit"name="room"  class="btn btn-success">Save</button>
         
 </form>
-</div>
+</div></div>

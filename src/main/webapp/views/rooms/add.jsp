@@ -1,3 +1,4 @@
+<div class="im">
 <div class="homepage">
 <jsp:include page="../shared/_layout.jsp" />
 <form action="${appName}rooms/add" method="post">
@@ -33,4 +34,5 @@
 	  	<button type="submit"name="room"  class="btn btn-success">Add Room</button>
 
 </form>
+</div>
 </div>

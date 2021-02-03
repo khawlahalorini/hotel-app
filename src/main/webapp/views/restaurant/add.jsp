@@ -1,11 +1,10 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div class="imres styleall">
 <div class="homepage">
 	<jsp:include page="../shared/_layout.jsp" />
-
 	<form action="${appName}restaurant/add" method="post">
-
 		<div class="form-group">
 		<label>Name:</label>
 			<input type="text" class="form-control" placeholder="Name"
@@ -38,16 +37,13 @@
 			<input type="date" class="form-control" placeholder="date"
 				name="date" required>
 		</div>
-
 		<div class="form-group">
 		<label>Time:</label>
 			<input type="time" class="form-control" placeholder="time"
 				name="time" required>
 		</div>
-
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
 		<button type="submit" class="btn btn-success">Reservation</button>
-
 	</form>
-</div>
+</div></div>

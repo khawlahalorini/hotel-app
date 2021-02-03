@@ -179,7 +179,10 @@
 </security:authorize>
 <c:if test="${message != null}">
 <div class="alert alert-primary" role="alert">
-<h2>${message}</h2>
+
+   <h1>${message}</h1>
+
+
 </div>
 </c:if>
 

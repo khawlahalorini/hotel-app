@@ -86,7 +86,7 @@ html {
 </head>
 <body>
 
-<div class="about-section">
+<div class="about-section styleall">
 <img src="http://adel-kalu.com/index/images/logo.png" width="60" height="50"/>
   <h1>About Us</h1>
   <p>We are students of Misk Academy and General Assembly.</p>
@@ -94,7 +94,7 @@ html {
 </div>
 
 <h2 style="text-align:center">Our Team</h2>
-<div class="row">
+<div class="row styleall ">
 
   <div class="column">
     <div class="card">
@@ -104,7 +104,7 @@ html {
         <p class="title">Software Engineer</p>
         <p>The more you learn, the more you earn.</p>
         <p>adel.b.kalu@gmail.com</p>
-       <p><a href="http://adel-kalu.com/"><button class="button">Contact</button></a></p>       
+       <p><a href="https://www.linkedin.com/in/adel-kalu/"><button class="button">Contact</button></a></p>       
       </div>
     </div>
   </div>

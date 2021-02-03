@@ -1,3 +1,5 @@
+
+<div class="im">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <div class="homepage">
 <jsp:include page="../shared/_layout.jsp" />
@@ -24,4 +26,6 @@
 <div>
 <h2>${message}</h2>
 </div>
+</div>
 </c:if>
+

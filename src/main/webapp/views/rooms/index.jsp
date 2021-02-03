@@ -1,10 +1,12 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div class="room">
+<div class="im styleall">
+
+<div class="room ">
 	<jsp:include page="../shared/_layout.jsp" />
 	<table class="table table-striped">
-		<tr>
+		<tr >
 			<th>Room No</th>
 			<th>Room Type</th>
 			<th>description</th>
@@ -16,9 +18,7 @@
 				<th>Actions</th>
 			</security:authorize>
 		</tr>
-
 		<security:authorize access="hasRole('USER')">
-
 			<c:forEach items="${rooms}" var="room">
 				<%-- <c:set var="user" value="<security:authentication property="principal.username" />"/>
  --%>
@@ -28,8 +28,8 @@
 		<c:if test="${room.reservation == 'vacant' or room.reservation == <security:authentication property="principal.username" /> }" >
  --%>
 					<tr>
-						<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
-						<td>${room.roomType}</td>
+						<td ><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
+						<td >${room.roomType}</td>
 						<td>${room.description}</td>
 						<td>${room.price}</td>
 						<security:authorize access="isAuthenticated()">
@@ -60,58 +60,45 @@
 												<input type="hidden" class="form-control"
 													value="${room.roomType}" name="roomType" required>
 											</div>
-
 											<div class="form-group">
 												<input type="hidden" class="form-control"
 													value="<security:authentication property="principal.username" />"
 													name="reservation" required>
 											</div>
-
 											<div class="form-group">
 												<input type="hidden" class="form-control"
 													value="${room.image}" name="image" required>
 											</div>
-
 											<input name="id" type="hidden" value="${room.id}"> <input
 												type="hidden" name="${_csrf.parameterName}"
 												value="${_csrf.token}" />
 											<button type="submit" name="room" class="btn btn-success">Reservation</button>
-
 										</form>
 								</c:otherwise>
 							</c:choose>
-
 						</security:authorize>
-
 					</tr>
 				</c:if>
 			</c:forEach>
 		</security:authorize>
-
 		<security:authorize access="hasRole('ADMIN')">
-
 			<c:forEach items="${rooms}" var="room">
-				<tr>
+				<tr class="styleall">
 					<td><a href="${appName}rooms/detail?id=${room.id}">${room.roomNo}</a></td>
 					<td>${room.roomType}</td>
 					<td>${room.description}</td>
 					<td>${room.price}</td>
-
 					<security:authorize access="isAuthenticated()">
 						<td>${room.reservation}</td>
 						<td><a href="${appName}rooms/edit?id=${room.id}"><button
 									class="btn btn-success">Edit</button></a> <a
 							href="${appName}rooms/delete?id=${room.id}"><button
 									class="btn btn-danger">Delete</button></a></td>
-
 					</security:authorize>
-
 				</tr>
 			</c:forEach>
 		</security:authorize>
-
 		<security:authorize access="!isAuthenticated()">
-
 			<c:forEach items="${rooms}" var="room">
 				<c:if test="${room.reservation == 'vacant'}">
 					<tr>
@@ -119,11 +106,9 @@
 						<td>${room.roomType}</td>
 						<td>${room.description}</td>
 						<td>${room.price}</td>
-
 					</tr>
 				</c:if>
 			</c:forEach>
 		</security:authorize>
 	</table>
-
-</div>
+</div></div>
