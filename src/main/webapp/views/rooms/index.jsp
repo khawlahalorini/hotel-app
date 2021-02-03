@@ -5,7 +5,7 @@
 
 <div class="room ">
 	<jsp:include page="../shared/_layout.jsp" />
-	<table class="table table-striped">
+	<table class="table" style="color:white;">
 		<tr >
 			<th>Room No</th>
 			<th>Room Type</th>

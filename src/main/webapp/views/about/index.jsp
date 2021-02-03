@@ -1,22 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=windows-1256"
     pageEncoding="windows-1256"%>
-    <jsp:include page="../shared/_layout.jsp" />
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="windows-1256">
 <style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
 
 html {
   box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
 }
 
 .column {
@@ -63,7 +55,7 @@ html {
   background-color: #000;
   text-align: center;
   cursor: pointer;
-  width: 450px;
+  width: 300px;
 }
 
 
@@ -85,8 +77,9 @@ html {
 </style>
 </head>
 <body>
-
-<div class="about-section styleall">
+    <div class="styleall" style="padding:20px;">
+    <jsp:include page="../shared/_layout.jsp" />
+<div class="about-section">
 <img src="http://adel-kalu.com/index/images/logo.png" width="60" height="50"/>
   <h1>About Us</h1>
   <p>We are students of Misk Academy and General Assembly.</p>
@@ -147,7 +140,8 @@ html {
       </div>
     </div>
   </div>
-  
 </div>
+</div>
+
 </body>
 </html>
