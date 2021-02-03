@@ -4,7 +4,7 @@
  <div class="im">
 <div class="homepage">
 <jsp:include page="../shared/_layout.jsp" />
-<table class="table table-striped">
+<table class="table" style="color:white;">
   <thead>
     <tr>
       <th scope="col">#</th>

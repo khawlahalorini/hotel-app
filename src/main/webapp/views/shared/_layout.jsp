@@ -39,7 +39,7 @@
 	<div id="navbarCollapse" class="collapse navbar-collapse">
 		<ul class="nav navbar-nav">
 			<li><a href="${appName}">Home</a></li>
-					<li><a href="${appName}about/index">About</a></li>			
+			<li><a href="${appName}about/index">About</a></li>			
 			<li><a href="${appName}rooms/roomb">Rooms</a></li>
 				<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Restaurant <b class="caret"></b></a>

@@ -2,7 +2,7 @@
 <div class="imres styleall">
 <div class="homepage ">
 	<jsp:include page="../shared/_layout.jsp" />
-	<table class="table table-striped ">
+	<table class="table" style="color:white;">
 		<tr>
 			<th scope="col" colspan="5">
 				<form class="navbar-form form-inline"
@@ -11,7 +11,7 @@
 					<input class="form-control" type="search" name="phone_number"
 						placeholder="966xxxxxxxxx"> 
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Check</button>
+					<button class="btn btn-outline-success my-2 my-sm-0" style="color:black;" type="submit">Check</button>
 				</form>
 			</th>
 		</tr>
