@@ -138,7 +138,7 @@ Before starting coding for the application, wireframes were needed to make an in
 
 <br/>
 
-## Preferences
+## References
 
 - zoom metting records
 - w3schools website
